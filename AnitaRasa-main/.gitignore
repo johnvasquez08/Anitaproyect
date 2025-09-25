@@ -1,6 +1,5 @@
 # Ignorar carpetas automáticas
 .rasa/
-models/
 rasa_env/
 
 # Ignorar claves y archivos sensibles
