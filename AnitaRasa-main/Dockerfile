@@ -1,27 +1,19 @@
-# Usa la imagen de Python 3.8 como base
-FROM python:3.8.10-slim
+# Usa la imagen oficial de Rasa como base
+FROM rasa/rasa:3.7.0-full
 
 # Establece el directorio de trabajo
 WORKDIR /app
 
-# Copia los archivos del proyecto al contenedor
+# Copia todos los archivos de tu proyecto al contenedor
 COPY . /app
 
-# Actualiza apt y instala las dependencias necesarias
-RUN apt-get update && apt-get install -y \
-    gcc \
-    g++ \
-    python3-dev \
-    libffi-dev \
-    libssl-dev \
-    build-essential \
-    tzdata
+# Instala solo las dependencias específicas para tus acciones
+# Esto es lo único que necesitas instalar manualmente
+RUN pip install --no-cache-dir -r requirements.txt
 
-# Instala pip y actualiza
-RUN pip install --upgrade pip
+# Copia el script de inicio y dale permisos de ejecución
+COPY entrypoint.sh /usr/local/bin/entrypoint.sh
+RUN chmod +x /usr/local/bin/entrypoint.sh
 
-# Instala Rasa
-RUN pip install rasa==3.6.21
-
-# Instala las dependencias de Python desde el archivo requirements.txt
-RUN pip install -r requirements.txt
+# Define el punto de entrada para ejecutar tu script
+ENTRYPOINT ["entrypoint.sh"]

@@ -50,7 +50,7 @@ export const Faqs = () => {
   const [selectedFile, setSelectedFile] = useState(null);
   const storedUser = JSON.parse(localStorage.getItem("user"));
   const senderId = storedUser?.sender_id || "visitante"; // por si no está logueado
-  const rasaUrl = "/rasa"; // Usamos la URL relativa configurada en Vite
+  const rasaUrl = import.meta.env.VITE_RASA_URL // Usamos la URL relativa configurada en Vite
 
   const sendMessageToRasa = async (message) => {
   try {
