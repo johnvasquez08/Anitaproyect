@@ -1,0 +1,14 @@
+# Ignorar carpetas automáticas
+.rasa/
+models/
+rasa_env/
+
+# Ignorar claves y archivos sensibles
+google-vision-key.json
+
+# Ignorar otras cosas comunes
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.env

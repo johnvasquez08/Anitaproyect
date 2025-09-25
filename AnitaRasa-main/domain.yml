@@ -1,0 +1,556 @@
+version: "3.1"
+
+intents:
+  - cotizar_producto
+  - cambiar_pais
+  - listar_paises
+  - ayuda_cotizador
+  - faq_saludo
+  - faq_despedida
+  - faq_ayuda
+  - faq_estado_bot
+  - faq_afirmacion
+  - faq_negacion
+  - faq_estado_animo_positivo
+  - faq_estado_animo_negativo
+  - faq_eres_bot
+  - faq_quien_te_creo
+  - faq_que_puedes_hacer
+  - faq_tienes_sentimientos
+  - faq_procesas_informacion
+  - faq_requisitos_negocio
+  - faq_licencias_y_permisos
+  - faq_impuestos_negocio
+  - faq_financiamiento
+  - faq_planificacion_negocio
+  - faq_horario_atencion
+  - faq_ubicacion
+  - faq_contacto
+  - faq_precios
+  - faq_citas
+  - faq_agradecimiento
+  - faq_disculpa
+  - faq_solicitud_ayuda
+  - faq_contratar_servicios_identidad
+  - faq_tasa_rendimientos
+  - faq_metodologias
+  - faq_generales
+  - faq_solicitar_reporte
+  - faq_cotizar_producto
+  - faq_analizar_imagen
+  - set_reminder
+  - ask_for_reminders
+  - start_brand_evaluation
+  - responder_pregunta_evaluacion
+  - nlu_fallback
+
+entities:
+  - company_urls
+  - producto
+  - image_data
+  - mensaje_recordatorio
+  - fecha_recordatorio
+  - numero
+  - pais
+
+slots:
+  producto:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: producto
+    
+  pais:
+    type: text
+    initial_value: "MX"
+    mappings:
+    - type: from_entity
+      entity: pais
+      
+  ultimo_producto_cotizado:
+    type: text
+    mappings:
+    - type: custom
+  consulta_negocio:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: null
+
+  company_urls:
+    type: list
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: company_urls
+        conditions:
+          - active_loop: null
+
+  image_data:
+    type: text  
+    influence_conversation: false
+    mappings:
+      - type: from_entity
+        entity: image_data
+        conditions:
+          - active_loop: null 
+
+  mensaje_recordatorio:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: mensaje_recordatorio
+        intent: set_reminder
+        conditions:
+          - active_loop: null
+        
+  fecha_recordatorio:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: fecha_recordatorio
+        intent: set_reminder
+        conditions:
+          - active_loop: null
+
+  nombre_marca:
+    type: text
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: formulario_evaluacion_marca
+            requested_slot: nombre_marca
+
+  tipo_empresa:
+    type: categorical
+    values:
+      - ecommerce
+      - servicios
+      - otro
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: formulario_evaluacion_marca
+            requested_slot: tipo_empresa
+
+  q1:
+    type: float
+    mappings:
+      - type: from_entity
+        entity: numero
+        conditions:
+          - active_loop: formulario_evaluacion_marca
+            requested_slot: q1
+  q2:
+    type: float
+    mappings:
+      - type: from_entity
+        entity: numero
+        conditions:
+          - active_loop: formulario_evaluacion_marca
+            requested_slot: q2
+  q3:
+    type: float
+    mappings:
+      - type: from_entity
+        entity: numero
+        conditions:
+          - active_loop: formulario_evaluacion_marca
+            requested_slot: q3
+  q4:
+    type: float
+    mappings:
+      - type: from_entity
+        entity: numero
+        conditions:
+          - active_loop: formulario_evaluacion_marca
+            requested_slot: q4
+  q5:
+    type: float
+    mappings:
+      - type: from_entity
+        entity: numero
+        conditions:
+          - active_loop: formulario_evaluacion_marca
+            requested_slot: q5
+  q6:
+    type: float
+    mappings:
+      - type: from_entity
+        entity: numero
+        conditions:
+          - active_loop: formulario_evaluacion_marca
+            requested_slot: q6
+  q7:
+    type: float
+    mappings:
+      - type: from_entity
+        entity: numero
+        conditions:
+          - active_loop: formulario_evaluacion_marca
+            requested_slot: q7
+  q8:
+    type: float
+    mappings:
+      - type: from_entity
+        entity: numero
+        conditions:
+          - active_loop: formulario_evaluacion_marca
+            requested_slot: q8
+  q9:
+    type: float
+    mappings:
+      - type: from_entity
+        entity: numero
+        conditions:
+          - active_loop: formulario_evaluacion_marca
+            requested_slot: q9
+  q10:
+    type: float
+    mappings:
+      - type: from_entity
+        entity: numero
+        conditions:
+          - active_loop: formulario_evaluacion_marca
+            requested_slot: q10
+  q11:
+    type: float
+    mappings:
+      - type: from_entity
+        entity: numero
+        conditions:
+          - active_loop: formulario_evaluacion_marca
+            requested_slot: q11
+  q12:
+    type: float
+    mappings:
+      - type: from_entity
+        entity: numero
+        conditions:
+          - active_loop: formulario_evaluacion_marca
+            requested_slot: q12
+  q13:
+    type: float
+    mappings:
+      - type: from_entity
+        entity: numero
+        conditions:
+          - active_loop: formulario_evaluacion_marca
+            requested_slot: q13
+  q14:
+    type: float
+    mappings:
+      - type: from_entity
+        entity: numero
+        conditions:
+          - active_loop: formulario_evaluacion_marca
+            requested_slot: q14
+  q15:
+    type: float
+    mappings:
+      - type: from_entity
+        entity: numero
+        conditions:
+          - active_loop: formulario_evaluacion_marca
+            requested_slot: q15
+  q16:
+    type: float
+    mappings:
+      - type: from_entity
+        entity: numero
+        conditions:
+          - active_loop: formulario_evaluacion_marca
+            requested_slot: q16
+  q17:
+    type: float
+    mappings:
+      - type: from_entity
+        entity: numero
+        conditions:
+          - active_loop: formulario_evaluacion_marca
+            requested_slot: q17
+  q18:
+    type: float
+    mappings:
+      - type: from_entity
+        entity: numero
+        conditions:
+          - active_loop: formulario_evaluacion_marca
+            requested_slot: q18
+  q19:
+    type: float
+    mappings:
+      - type: from_entity
+        entity: numero
+        conditions:
+          - active_loop: formulario_evaluacion_marca
+            requested_slot: q19
+  q20:
+    type: float
+    mappings:
+      - type: from_entity
+        entity: numero
+        conditions:
+          - active_loop: formulario_evaluacion_marca
+            requested_slot: q20
+  q21:
+    type: float
+    mappings:
+      - type: from_entity
+        entity: numero
+        conditions:
+          - active_loop: formulario_evaluacion_marca
+            requested_slot: q21
+
+
+
+actions:
+  - action_search_google
+  - action_generate_report
+  - action_cotizar
+  - action_analyze_image
+  - action_guardar_recordatorio
+  - action_consultar_recordatorios
+  - action_calcular_resultado_marca
+  - action_cotizar_producto
+  - action_cambiar_pais
+  - action_listar_paises
+
+responses:
+
+  # RESPUESTAS A SALUDOS Y DESPEDIDAS
+  utter_explicar_cotizador:
+    - text: |
+        🤖 **¡Hola! Soy tu asistente de cotizaciones** 
+        
+        Puedo ayudarte a buscar precios en Amazon de diferentes países. 
+        
+        **¿Cómo funciona?**
+        ✅ Solo dime qué producto quieres cotizar
+        ✅ Te muestro los mejores 3 resultados con precios y enlaces
+        ✅ Puedes cambiar el país de búsqueda
+        
+        **Ejemplos:**
+        💭 "Cotiza iPhone 15"
+        💭 "Busca precios de laptop gaming" 
+        💭 "Cuánto cuesta un Samsung Galaxy"
+        💭 "Cambiar a Estados Unidos"
+        
+        **Países disponibles:** México, Estados Unidos, Canadá, Reino Unido y más.
+        
+        ¿Qué producto te gustaría cotizar?
+
+  utter_pedir_producto:
+    - text: "¿Qué producto te gustaría cotizar? Por ejemplo: iPhone 15, laptop gaming, auriculares, etc."
+    - text: "Dime qué producto quieres buscar y te muestro los mejores precios de Amazon."
+    - text: "¿Cuál producto te interesa cotizar hoy?"
+
+  utter_producto_no_encontrado:
+    - text: "No pude encontrar ese producto. ¿Podrías intentar con otro término? Por ejemplo: 'iPhone' en lugar de 'teléfono Apple'"
+    - text: "Hmm, no encontré resultados. Intenta ser más específico, como 'Samsung Galaxy S24' en lugar de solo 'teléfono'"
+
+  utter_error_cotizacion:
+    - text: "Ocurrió un problema técnico al buscar precios. Por favor, inténtalo de nuevo en unos momentos."
+    - text: "No pude conectarme al servicio de cotizaciones ahora. ¿Podrías intentar más tarde?"
+
+  utter_pais_cambiado:
+    - text: "✅ Perfecto! Ahora buscaré en Amazon {pais}. ¿Qué producto quieres cotizar?"
+  utter_faq_saludo:
+    - text: "¡Hola! ¿Cómo estás?"
+    - text: "¡Hola! ¿En qué puedo ayudarte hoy?"
+    - text: "¡Bienvenido! ¿Cómo te ayudo?"
+
+  utter_faq_despedida:
+    - text: "¡Hasta luego! Que tengas un gran día."
+    - text: "Nos vemos pronto. ¡Cuídate!"
+    - text: "¡Adiós! Fue un placer ayudarte."
+  
+  utter_faq_estado_bot:
+    - text: "¡Estoy bien! Gracias por preguntar 😊 ¿En qué puedo ayudarte?"
+    - text: "¡Todo bien! ¿Cómo puedo asistirte hoy?"
+
+  utter_faq_ayuda:
+    - text: "¡Por supuesto! Dime en qué área necesitas apoyo y con gusto te ayudo."
+    - text: "Estoy aquí para ayudarte. ¿Sobre qué tema necesitas información?"
+
+  # RESPUESTAS A AFIRMACIONES Y NEGACIONES
+  utter_faq_afirmacion:
+    - text: "¡Genial!"
+    - text: "¡Me alegra escuchar eso!"
+    - text: "¡Por supuesto!"
+
+  utter_faq_negacion:
+    - text: "Entiendo."
+    - text: "Está bien, no hay problema."
+    - text: "De acuerdo."
+
+  # RESPUESTAS A ESTADO DE ÁNIMO
+  utter_faq_estado_animo_positivo:
+    - text: "¡Me alegra escuchar eso! 😊"
+    - text: "¡Genial! Espero que tu día siga así de bien."
+    - text: "¡Eso es fantástico! Sigue disfrutando."
+
+  utter_faq_estado_animo_negativo:
+    - text: "Lamento escuchar eso. ¿Puedo ayudarte en algo?"
+    - text: "Espero que tu día mejore. Si necesitas algo, aquí estoy."
+    - text: "Ánimo, todo mejora con el tiempo. 😊"
+
+  # RESPUESTAS SOBRE EL BOT
+  utter_faq_eres_bot:
+    - text: "Soy un asistente virtual creado para ayudarte. ¿En qué necesitas ayuda?"
+    - text: "Soy un bot, pero estoy aquí para responder tus preguntas."
+    - text: "Así es, soy un asistente virtual. ¡Pregúntame lo que quieras!"
+
+  utter_faq_quien_te_creo:
+    - text: "Fui creado por un equipo de desarrollo para ayudarte con información útil."
+    - text: "Mi existencia es gracias a programadores que quieren facilitarte la vida."
+
+  utter_faq_que_puedes_hacer:
+    - text: "Puedo responder preguntas sobre negocios, trámites y más. ¿En qué te ayudo?"
+    - text: "Mi función es brindarte información útil sobre diversos temas."
+
+  utter_faq_tienes_sentimientos:
+    - text: "No tengo emociones, pero intento responder de la mejor manera posible."
+    - text: "No tengo sentimientos como los humanos, pero estoy aquí para ayudarte."
+
+  utter_faq_procesas_informacion:
+    - text: "Analizo tu mensaje y busco la mejor respuesta basada en mis conocimientos."
+    - text: "Procesando palabras clave, entiendo tu pregunta y respondo lo mejor posible."
+
+  # RESPUESTAS A PREGUNTAS FRECUENTES
+  utter_faq_horario_atencion:
+    - text: "Nuestro horario de atención es de lunes a viernes, de 9:00 a 18:00."
+    - text: "Atendemos de 9 a 18 horas, de lunes a viernes. ¿Necesitas una cita?"
+
+  utter_faq_ubicacion:
+    - text: "Estamos ubicados en [dirección]. ¡Te esperamos!"
+    - text: "Nuestra oficina está en [dirección]. ¿Necesitas más indicaciones?"
+
+  utter_faq_contacto:
+    - text: "Puedes contactarnos al correo [email] o al teléfono [número]."
+    - text: "Estamos disponibles por correo y teléfono. ¿Cómo prefieres contactarnos?"
+
+  utter_faq_precios:
+    - text: "Los precios varían según el servicio. ¿Qué necesitas específicamente?"
+    - text: "Ofrecemos distintos planes. Contáctanos para más detalles."
+
+  utter_faq_citas:
+    - text: "Puedes agendar una cita llamando a [número] o visitando nuestra página web."
+    - text: "Para reservar una cita, usa nuestro sistema en línea o llámanos."
+
+  # RESPUESTAS A AGRADECIMIENTOS Y DISCULPAS
+  utter_faq_agradecimiento:
+    - text: "¡De nada! Siempre aquí para ayudarte. 😊"
+    - text: "No hay de qué, ¡es un placer ayudar!"
+    - text: "¡Gracias a ti! Si necesitas algo más, dime."
+
+  utter_faq_disculpa:
+    - text: "No te preocupes, ¡todo bien!"
+    - text: "No hay problema, ¡seguimos adelante!"
+    - text: "Entiendo, gracias por decirlo."
+
+  # RESPUESTAS A SOLICITUDES DE AYUDA
+  utter_faq_solicitud_ayuda:
+    - text: "¡Por supuesto! ¿Puedes decirme qué parte no entendiste?"
+    - text: "Voy a explicarlo de otra manera... [explicación]."
+    - text: "Te lo explico de nuevo. [explicación más clara]."
+
+  utter_faq_contratar_servicios_identidad:
+    - text: "Mientras lees este mensaje, están ocurriendo eventos en la red, millones de ellos contienen información que puede afectar drásticamente a tu organización. Por ejemplo, el fraude y las violaciones de seguridad son los delitos con mayor tasa de crecimiento en el mundo, alcanzando cifras de dos dígitos desde 2013. Sin embargo, lo que queremos hablarte va más allá: se trata de cómo organizarte para servir mejor a tus clientes. Tú, al igual que decenas de organizaciones que generan el 69 % de sus ingresos de manera eficiente, sabrás exactamente qué hacer para aprovechar las oportunidades. Estas se cuentan en millones de millones de pesos. Es un océano azul de posibilidades."
+
+  utter_faq_tasa_rendimientos:
+    - text: "La clave para elegir una consultoría de innovación rentable es realizar un análisis exhaustivo, considerando no solo el costo, sino también la calidad del servicio y su alineación con tus objetivos estratégicos. Una buena relación con el consultor puede marcar la diferencia y potenciar el éxito de tus iniciativas. Nuestras tarifas y servicios de consultoría varían en función de la complejidad del proyecto y la ubicación geográfica. Por ejemplo, en el caso de un desarrollo de océano azul en Ciudad de México, nos enfocamos únicamente en una tarifa por hora que comienza desde $500 por hora. Definir las necesidades específicas es fundamental, pero puede ser un proceso extenso. Por eso, en tan solo 30 minutos, te ofrecemos una sesión informativa donde te explicamos lo que hacemos. A través de herramientas comprobadas y un proceso de autodescubrimiento, podrás realizar un sizing de tus requerimientos. Finalmente, te recomendamos preguntar qué metodologías pueden adaptarse mejor a tu organización para maximizar los resultados."
+
+  utter_faq_metodologias:
+    - text: "Estamos alineados a la metodología IBM DEVOPS y Design Sprint de Google."
+
+  utter_inicio_evaluacion:
+  - text: "¡Perfecto! Vamos a empezar la evaluación. Te haré algunas preguntas, responde con un numero del 1 al 5. Pero antes:"
+
+  utter_ask_nombre_marca:
+    - text: "¿Cómo se llama tu marca?"
+  utter_ask_tipo_empresa:
+    - text: "¿Qué tipo de empresa tienes?"
+  utter_ask_q1:
+    - text: "¿El nombre de su marca es fácil de pronunciar y recordar?"
+  utter_ask_q2:
+    - text: "¿Su logo es simple, reconocible y tiene un significado claro?"
+  utter_ask_q3:
+    - text: "¿La paleta de colores de su logo es atractiva y coherente con los valores de la marca?"
+  utter_ask_q4:
+    - text: "¿La identidad visual (logo, colores, tipografías) se mantiene coherente en todos los puntos de contacto con el cliente?"
+  utter_ask_q5:
+    - text: "¿Las tipografías utilizadas son legibles y comunican los valores de la marca?"
+  utter_ask_q6:
+    - text: "¿Su marca tiene definidos valores claros y estos se comunican visualmente?"
+  utter_ask_q7:
+    - text: "¿Publican contenido de forma regular en redes sociales?"
+  utter_ask_q8:
+    - text: "¿El contenido publicado va más allá del producto o servicio (educativo, emocional, interactivo)?"
+  utter_ask_q9:
+    - text: "¿El diseño de las publicaciones es atractivo, coherente y fácil de entender?"
+  utter_ask_q10:
+    - text: "¿Mantienen una relación cercana con sus seguidores (responden comentarios, interactúan)?"
+  utter_ask_q11:
+    - text: "¿Su audiencia reconoce su marca incluso sin ver el nombre (por estilo visual o tono)?"
+  utter_ask_q12:
+    - text: "¿La página web presenta los productos/servicios de manera clara y atractiva?"
+  utter_ask_q13:
+    - text: "¿La navegación del sitio es intuitiva y rápida (también en móviles)?"
+  utter_ask_q14:
+    - text: "¿El sitio incluye enlaces visibles a redes sociales y formas de contacto?"
+  utter_ask_q15:
+    - text: "¿La calidad visual (imágenes, diseño) refleja profesionalismo?"
+  utter_ask_q16:
+    - text: "¿La experiencia general del usuario en la web es positiva?"
+  utter_ask_q17:
+    - text: "¿Sus clientes destacan la atención, calidad o imagen de la marca?"
+  utter_ask_q18:
+    - text: "¿Ha recibido comentarios sobre falta de coherencia visual o identidad?"
+  utter_ask_q19:
+    - text: "¿Las personas pueden diferenciar su marca de la competencia fácilmente?"
+  utter_ask_q20:
+    - text: "¿Ha realizado algún análisis o encuesta para evaluar su imagen de marca?"
+  utter_ask_q21:
+    - text: "¿Su branding está actualizado y alineado con tendencias del mercado?"
+
+
+forms:
+  formulario_evaluacion_marca:
+    required_slots:
+      - nombre_marca
+      - tipo_empresa
+      - q1
+      - q2
+      - q3
+      - q4
+      - q5
+      - q6
+      - q7
+      - q8
+      - q9
+      - q10
+      - q11
+      - q12
+      - q13
+      - q14
+      - q15
+      - q16
+      - q17
+      - q18
+      - q19
+      - q20
+      - q21
+    
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
+
+
+
+
+
+
+

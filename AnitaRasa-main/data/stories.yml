@@ -1,0 +1,220 @@
+version: "3.1"
+
+
+stories:
+
+  # SALUDOS Y DESPEDIDAS
+  - story: Usuario saluda y el bot responde
+    steps:
+      - intent: faq_saludo
+      - action: utter_faq_saludo
+
+  - story: Usuario se despide y el bot responde
+    steps:
+      - intent: faq_despedida
+      - action: utter_faq_despedida
+
+  # AFIRMACIONES Y NEGACIONES
+  - story: Usuario afirma algo y el bot responde
+    steps:
+      - intent: faq_afirmacion
+      - action: utter_faq_afirmacion
+
+  - story: Usuario niega algo y el bot responde
+    steps:
+      - intent: faq_negacion
+      - action: utter_faq_negacion
+
+  # ESTADO DE ÁNIMO
+  - story: Usuario está de buen ánimo y el bot responde
+    steps:
+      - intent: faq_estado_animo_positivo
+      - action: utter_faq_estado_animo_positivo
+
+  - story: Usuario está de mal ánimo y el bot responde
+    steps:
+      - intent: faq_estado_animo_negativo
+      - action: utter_faq_estado_animo_negativo
+      - intent: faq_solicitud_ayuda
+      - action: utter_faq_solicitud_ayuda
+
+  # INFORMACIÓN SOBRE EL BOT
+  - story: Usuario pregunta si el bot es un asistente
+    steps:
+      - intent: faq_eres_bot
+      - action: utter_faq_eres_bot
+      - intent: faq_quien_te_creo
+      - action: utter_faq_quien_te_creo
+
+  - story: Usuario pregunta qué puede hacer el bot
+    steps:
+      - intent: faq_que_puedes_hacer
+      - action: utter_faq_que_puedes_hacer
+      - intent: faq_procesas_informacion
+      - action: utter_faq_procesas_informacion
+
+  - story: Usuario pregunta si el bot tiene sentimientos
+    steps:
+      - intent: faq_tienes_sentimientos
+      - action: utter_faq_tienes_sentimientos
+
+  #  INFORMACIÓN SOBRE NEGOCIOS Y TRÁMITES
+  
+  # INFORMACIÓN GENERAL (HORARIO, UBICACIÓN, CONTACTO)
+  - story: Usuario pregunta por el horario de atención
+    steps:
+      - intent: faq_horario_atencion
+      - action: utter_faq_horario_atencion
+
+  - story: Usuario pregunta por la ubicación
+    steps:
+      - intent: faq_ubicacion
+      - action: utter_faq_ubicacion
+
+  - story: Usuario pregunta por formas de contacto
+    steps:
+      - intent: faq_contacto
+      - action: utter_faq_contacto
+
+  # PREGUNTAS SOBRE SERVICIOS Y CITAS
+  - story: Usuario pregunta por precios y agenda una cita
+    steps:
+      - intent: faq_precios
+      - action: utter_faq_precios
+      - intent: faq_citas
+      - action: utter_faq_citas
+      - slot_was_set:
+          - consulta_negocio: "cita agendada"
+
+  # INTERACCIONES SOCIALES
+  - story: Usuario agradece y el bot responde
+    steps:
+      - intent: faq_agradecimiento
+      - action: utter_faq_agradecimiento
+
+  - story: Usuario se disculpa y el bot responde
+    steps:
+      - intent: faq_disculpa
+      - action: utter_faq_disculpa
+
+  # SOLICITUDES DE AYUDA
+  - story: Usuario pide ayuda y el bot le responde
+    steps:
+      - intent: faq_solicitud_ayuda
+      - action: utter_faq_solicitud_ayuda
+
+  # AUTOMATIZACION DE ACTIVIDADES
+  - story: Generar un reporte
+    steps:
+    - intent: faq_solicitar_reporte
+    - action: action_generate_report
+
+  - story: Cotizar un producto
+    steps:
+    - intent: faq_cotizar_producto
+    - action: action_cotizar
+
+  - story: Analizar una imagen
+    steps:
+    - intent: faq_analizar_imagen
+    - action: action_analyze_image
+
+  # FALLBACK MEJORADO
+  - story: Usuario dice algo desconocido y el bot intenta ayudar
+    steps:
+      - intent: nlu_fallback
+      - action: action_search_google
+      - intent: faq_solicitud_ayuda
+      - action: utter_faq_solicitud_ayuda
+  
+  - story: Manejo de preguntas no entendidas
+    steps:
+      - intent: nlu_fallback
+      - action: action_search_google
+
+  # RECORDATORIOS Y NOTIFICACIONES
+  - story: Flujo de recordatorio
+    steps:
+    - intent: set_reminder
+    - action: action_guardar_recordatorio
+
+  - story: consultar recordatorios
+    steps:
+      - intent: ask_for_reminders
+      - action: action_consultar_recordatorios
+  - story: cotizar producto directo
+    steps:
+      - intent: cotizar_producto
+        entities:
+        - producto: "iphone 15"
+      - action: action_cotizar_producto
+
+  - story: cotizar producto sin especificar
+    steps:
+      - intent: cotizar_producto
+      - action: action_cotizar_producto
+      - intent: inform
+        entities:
+        - producto: "samsung galaxy"
+      - action: action_cotizar_producto
+
+  - story: cambiar país y cotizar
+    steps:
+      - intent: cambiar_pais
+        entities:
+        - pais: "estados unidos"
+      - action: action_cambiar_pais
+      - intent: cotizar_producto
+        entities:
+        - producto: "macbook pro"
+      - action: action_cotizar_producto
+
+  - story: listar países disponibles
+    steps:
+      - intent: listar_paises
+      - action: action_listar_paises
+
+  - story: ayuda con cotizador
+    steps:
+      - intent: ayuda_cotizador
+      - action: utter_explicar_cotizador
+
+  - story: cotizar múltiples productos
+    steps:
+      - intent: cotizar_producto
+        entities:
+        - producto: "laptop gaming"
+      - action: action_cotizar_producto
+      - intent: cotizar_producto
+        entities:
+        - producto: "mouse inalambrico"
+      - action: action_cotizar_producto
+
+  - story: cambiar país en medio de cotización
+    steps:
+      - intent: cotizar_producto
+        entities:
+        - producto: "nintendo switch"
+      - action: action_cotizar_producto
+      - intent: cambiar_pais
+        entities:
+        - pais: "canadá"
+      - action: action_cambiar_pais
+      - intent: cotizar_producto
+        entities:
+        - producto: "playstation 5"
+      - action: action_cotizar_producto
+
+  - story: pedir ayuda después de error
+    steps:
+      - intent: cotizar_producto
+        entities:
+        - producto: "producto inexistente xyz123"
+      - action: action_cotizar_producto
+      - intent: ayuda_cotizador
+      - action: utter_explicar_cotizador
+  
+
+
+
+

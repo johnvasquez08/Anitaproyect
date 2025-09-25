@@ -1,0 +1,240 @@
+version: "3.1"
+
+rules:
+
+  # REGLAS PARA SALUDOS Y DESPEDIDAS
+  - rule: Consultar recordatorios
+    steps:
+    - intent: ask_for_reminders
+    - action: action_consultar_recordatorios
+    
+  - rule: Responder a un saludo
+    steps:
+      - intent: faq_saludo
+      - action: utter_faq_saludo
+
+  - rule: Responder a una despedida
+    steps:
+      - intent: faq_despedida
+      - action: utter_faq_despedida
+
+  - rule: Responder solicitud de ayuda
+    steps:
+      - intent: faq_ayuda
+      - action: utter_faq_ayuda
+
+  # REGLAS PARA RESPONDER AFIRMACIONES Y NEGACIONES
+  - rule: Responder a una afirmación
+    steps:
+      - intent: faq_afirmacion
+      - action: utter_faq_afirmacion
+
+  - rule: Responder a una negación
+    steps:
+      - intent: faq_negacion
+      - action: utter_faq_negacion
+
+  # REGLAS PARA RESPONDER AL ESTADO DE ÁNIMO
+  - rule: Responder a un estado de ánimo positivo
+    steps:
+      - intent: faq_estado_animo_positivo
+      - action: utter_faq_estado_animo_positivo
+
+  - rule: Responder a un estado de ánimo negativo
+    steps:
+      - intent: faq_estado_animo_negativo
+      - action: utter_faq_estado_animo_negativo
+
+  # REGLAS SOBRE EL BOT
+  - rule: Responder si el bot es un asistente
+    steps:
+      - intent: faq_eres_bot
+      - action: utter_faq_eres_bot
+
+  - rule: Responder sobre quién creó el bot
+    steps:
+      - intent: faq_quien_te_creo
+      - action: utter_faq_quien_te_creo
+
+  - rule: Responder sobre las funciones del bot
+    steps:
+      - intent: faq_que_puedes_hacer
+      - action: utter_faq_que_puedes_hacer
+
+  - rule: Responder sobre sentimientos del bot
+    steps:
+      - intent: faq_tienes_sentimientos
+      - action: utter_faq_tienes_sentimientos
+
+  - rule: Responder sobre procesamiento de información
+    steps:
+      - intent: faq_procesas_informacion
+      - action: utter_faq_procesas_informacion
+
+  # REGLAS PARA NEGOCIOS Y TRÁMITES
+  - rule: Responder sobre requisitos para abrir un negocio
+    steps:
+      - intent: faq_requisitos_negocio
+      - action: action_search_google
+
+  - rule: Responder sobre licencias y permisos
+    steps:
+      - intent: faq_licencias_y_permisos
+      - action: action_search_google
+
+  - rule: Responder sobre impuestos para negocios
+    steps:
+      - intent: faq_impuestos_negocio
+      - action: action_search_google
+
+  - rule: Responder sobre financiamiento para negocios
+    steps:
+      - intent: faq_financiamiento
+      - action: action_search_google
+
+  - rule: Responder sobre planificacion para negocios
+    steps:
+      - intent: faq_planificacion_negocio
+      - action: action_search_google
+  
+  # REGLAS PARA PREGUNTAS FRECUENTES
+  - rule: Responder sobre el horario de atención
+    steps:
+      - intent: faq_horario_atencion
+      - action: utter_faq_horario_atencion
+
+  - rule: Responder sobre la ubicación
+    steps:
+      - intent: faq_ubicacion
+      - action: utter_faq_ubicacion
+
+  - rule: Responder sobre contacto
+    steps:
+      - intent: faq_contacto
+      - action: utter_faq_contacto
+
+  - rule: Responder sobre precios
+    steps:
+      - intent: faq_precios
+      - action: utter_faq_precios
+
+  - rule: Responder sobre citas
+    steps:
+      - intent: faq_citas
+      - action: utter_faq_citas
+
+  # REGLAS PARA AGRADECIMIENTOS Y DISCULPAS
+  - rule: Responder a un agradecimiento
+    steps:
+      - intent: faq_agradecimiento
+      - action: utter_faq_agradecimiento
+
+  - rule: Responder a una disculpa
+    steps:
+      - intent: faq_disculpa
+      - action: utter_faq_disculpa
+
+  # REGLAS PARA SOLICITUDES DE AYUDA
+  - rule: Responder a una solicitud de ayuda
+    steps:
+      - intent: faq_solicitud_ayuda
+      - action: utter_faq_solicitud_ayuda
+
+  # REGLAS PARA PREGUNTAS FRECUENTES (EMPRESA)
+  - rule: Responder a pregunta sobre contratación de servicios de identidad
+    steps:
+      - intent: faq_contratar_servicios_identidad
+      - action: utter_faq_contratar_servicios_identidad
+
+  - rule: Responder a pregunta sobre tasa de rendimientos
+    steps:
+      - intent: faq_tasa_rendimientos
+      - action: utter_faq_tasa_rendimientos
+
+  - rule: Responder a pregunta sobre metodologías
+    steps:
+      - intent: faq_metodologias
+      - action: utter_faq_metodologias
+
+  # REGLAS PARA PREGUNTAS FRECUENTES (GENERALES) 
+  - rule: Responder preguntas frecuentes 
+    steps:
+      - intent: faq_generales
+      - action: action_search_google
+
+  # MANEJO DE FALLBACK (CUANDO EL BOT NO ENTIENDE)
+  - rule: Usar IA cuando Rasa no entienda
+    steps:
+      - intent: nlu_fallback
+      - action: action_search_google 
+
+  # REGLAS ACTIVIDADES AUTONOMAS
+  - rule: Ejecutar acción de reporte
+    steps:
+    - intent: faq_solicitar_reporte
+    - action: action_generate_report
+
+  - rule: Ejecutar acción de cotización
+    steps:
+    - intent: faq_cotizar_producto
+    - action: action_cotizar
+
+  - rule: Ejecutar análisis de imagen
+    steps:
+    - intent: faq_analizar_imagen
+    - action: action_analyze_image
+
+  - rule: Guardar recordatorio
+    steps:
+    - intent: set_reminder
+    - action: action_guardar_recordatorio  
+
+  
+  - rule: Iniciar evaluación de marca
+    steps:
+      - intent: start_brand_evaluation
+      - action: utter_inicio_evaluacion
+      - action: formulario_evaluacion_marca
+      - active_loop: formulario_evaluacion_marca
+
+  - rule: Manejar respuestas durante el formulario
+    condition:
+      - active_loop: formulario_evaluacion_marca
+    steps:
+      - intent: responder_pregunta_evaluacion
+      - action: formulario_evaluacion_marca
+      - active_loop: formulario_evaluacion_marca
+
+  - rule: Evaluación completada
+    condition:
+      - active_loop: formulario_evaluacion_marca
+    steps:
+      - action: formulario_evaluacion_marca
+      - active_loop: null
+      - action: action_calcular_resultado_marca
+  - rule: Cotizar producto cuando se menciona
+    steps:
+    - intent: cotizar_producto
+    - action: action_cotizar_producto
+
+  - rule: Cambiar país cuando se solicita
+    steps:
+    - intent: cambiar_pais
+    - action: action_cambiar_pais
+
+  - rule: Mostrar países disponibles
+    steps:
+    - intent: listar_paises
+    - action: action_listar_paises
+
+  - rule: Ayuda del cotizador
+    steps:
+    - intent: ayuda_cotizador
+    - action: utter_explicar_cotizador
+
+  - rule: Responder cuando no se entiende la cotización
+    condition:
+    - slot_was_set:
+      - producto: null
+    steps:
+    - action: utter_pedir_producto
