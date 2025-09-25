@@ -1,0 +1,1181 @@
+version: "3.1"
+
+nlu:
+- intent: ask_for_reminders
+  examples: |
+    - ¿Cuáles son mis recordatorios?
+    - Muéstrame mis recordatorios
+    - ¿Tengo recordatorios pendientes?
+
+- intent: faq_saludo
+  examples: |
+    - hola
+    - qué tal
+    - buenas
+    - buenos días
+    - buenas tardes
+    - buenas noches
+    - cómo estás?
+    - cómo te va?
+    - qué onda?
+    - qué hay de nuevo?
+
+- intent: faq_despedida
+  examples: |
+    - adiós
+    - nos vemos
+    - hasta luego
+    - chau
+    - hasta pronto
+    - que tengas un buen día
+    - cuídate
+    - hasta la próxima
+    - bye
+
+- intent: faq_estado_bot
+  examples: |
+    - cómo estás
+    - cómo te encuentras
+    - qué tal todo
+    - cómo va tu día
+
+- intent: faq_ayuda
+  examples: |
+    - necesito ayuda
+    - puedes ayudarme
+    - requiero asistencia
+    - ayúdame
+    - tengo un problema
+
+- intent: faq_afirmacion
+  examples: |
+    - sí
+    - claro
+    - por supuesto
+    - exacto
+    - así es
+    - correcto
+
+- intent: faq_negacion
+  examples: |
+    - no
+    - para nada
+    - en absoluto
+    - negativo
+    - no creo
+    - imposible
+
+- intent: faq_estado_animo_positivo
+  examples: |
+    - Estoy bien
+    - Me siento feliz
+    - Todo va bien
+    - Estoy motivado
+    - Me siento genial
+
+- intent: faq_estado_animo_negativo
+  examples: |
+    - Estoy mal
+    - No me siento bien
+    - Me siento triste
+    - Estoy desanimado
+    - Estoy cansado
+
+### INTENTS ESPECÍFICOS SOBRE EL BOT
+- intent: faq_eres_bot
+  examples: |
+    - eres un bot?
+    - eres humano?
+    - eres real?
+    - eres una inteligencia artificial?
+    - eres un asistente virtual?
+    - estás vivo?
+    - tienes conciencia?
+    - eres una persona?
+    - hablo con una máquina?
+    - eres un robot?
+    - qué eres tú?
+
+- intent: faq_quien_te_creo
+  examples: |
+    - quién te creó?
+    - quién te programó?
+    - quién te diseñó?
+    - quién te desarrolló?
+    - quién te construyó?
+    - quién te hizo?
+    - quién es tu creador?
+    - quién te fabricó?
+    - quién está detrás de ti?
+    - quién hizo este asistente?
+    - quién diseñó este bot?
+    - quién es tu inventor?
+    - cómo fuiste creado?
+
+- intent: faq_que_puedes_hacer
+  examples: |
+    - qué puedes hacer?
+    - cómo me puedes ayudar?
+    - para qué sirves?
+
+- intent: faq_tienes_sentimientos
+  examples: |
+    - tienes sentimientos?
+    - puedes pensar por ti mismo?
+    - eres consciente?
+
+- intent: faq_procesas_informacion
+  examples: |
+    - cómo sabes lo que digo?
+    - cómo procesas la información?
+    - cómo funcionas?
+
+### CONSULTAS SOBRE NEGOCIOS
+# - intent: faq_requisitos_negocio
+#   examples: |
+#     - cómo puedo abrir un [restaurante](tipo_negocio)
+#     - qué necesito para abrir una [cafetería](tipo_negocio)
+#     - qué requisitos hay para un [minimarket](tipo_negocio)
+#     - cómo iniciar una [tienda de ropa](tipo_negocio)
+#     - qué trámites debo hacer para abrir una [panadería](tipo_negocio)
+#     - cuáles son los permisos para un [food truck](tipo_negocio)
+#     - quiero abrir una [tienda de electrónicos](tipo_negocio), ¿qué necesito?
+#     - qué licencias necesito para una [agencia de viajes](tipo_negocio)
+#     - cómo abrir un [gimnasio](tipo_negocio) de manera legal
+#     - qué documentos se requieren para una [empresa de transporte](tipo_negocio)
+#     - cuáles son los primeros pasos para abrir una [inmobiliaria](tipo_negocio)
+#     - quiero montar un [negocio de importación](tipo_negocio), ¿qué trámites necesito?
+#     - cómo puedo empezar un [negocio de belleza](tipo_negocio)
+#     - qué necesito para abrir un [salón de uñas](tipo_negocio)
+#     - qué permisos se requieren para un [spa](tipo_negocio)
+#     - cómo emprender un [negocio de fotografía](tipo_negocio)
+#     - quiero montar un [estudio de grabación](tipo_negocio), ¿cómo lo hago?
+#     - qué requisitos hay para abrir un [negocio de limpieza](tipo_negocio)
+#     - necesito información sobre abrir una [empresa de construcción](tipo_negocio)
+#     - cómo abrir una [tienda online](tipo_negocio) legalmente
+#     - qué se necesita para montar un [negocio de catering](tipo_negocio)
+#     - cómo abrir una [guardería infantil](tipo_negocio)
+#     - cuáles son los trámites para una [clínica veterinaria](tipo_negocio)
+#     - cómo abrir una [farmacia](tipo_negocio)
+#     - qué necesito para empezar un [negocio de venta de autos](tipo_negocio)
+#     - qué permisos se requieren para un [bar](tipo_negocio)
+#     - cómo puedo abrir un [hostal](tipo_negocio) en mi ciudad
+#     - cuáles son los requisitos para una [agencia de publicidad](tipo_negocio)
+#     - cómo puedo iniciar un negocio
+#     - cómo puedo empezar un negocio
+#     - qué necesito para abrir un negocio
+#     - qué se requiere para montar un negocio
+#     - cómo hacer para tener mi propio negocio
+#     - qué se necesita para emprender
+#     - cómo empiezo mi emprendimiento
+#     - cómo puedo emprender un negocio
+#     - quiero empezar mi empresa, ¿qué debo hacer?
+#     - cómo abrir una empresa desde cero
+#     - cómo arranco mi propio negocio
+#     - qué pasos debo seguir para iniciar un emprendimiento
+#     - qué tengo que hacer para ser emprendedor
+#     - cómo montar un negocio desde cero
+#     - quiero comenzar un negocio, ¿qué me recomiendas?
+#     - cómo crear mi propia empresa
+#     - cuáles son los primeros pasos para iniciar un negocio
+#     - qué trámites debo hacer para poner un negocio
+#     - quiero ser empresario, ¿por dónde empiezo?
+#     - cómo empiezo a vender mis productos
+#     - cómo poner mi propio emprendimiento
+#     - qué necesito para registrar una empresa
+#     - cómo iniciar mi empresa de forma legal
+#     - qué documentos necesito para abrir un negocio
+#     - cómo abrir un pequeño negocio en casa
+#     - qué permisos necesito para montar un negocio
+#     - cómo planificar un negocio desde cero
+#     - cuáles son los requisitos para abrir una empresa
+#     - cómo hacer un plan de negocios para empezar
+
+- intent: faq_requisitos_negocio
+  examples: |
+    - cómo puedo abrir un restaurante
+    - qué necesito para abrir una cafetería
+    - qué requisitos hay para un minimarket
+    - cómo iniciar una tienda de ropa
+    - qué trámites debo hacer para abrir una panadería
+    - cuáles son los permisos para un food truck
+    - quiero abrir una tienda de electrónicos, qué necesito
+    - qué licencias necesito para una agencia de viajes
+    - cómo abrir un gimnasio de manera legal
+    - qué documentos se requieren para una empresa de transporte
+    - cuáles son los primeros pasos para abrir una inmobiliaria
+    - quiero montar un negocio de importación, qué trámites necesito
+    - cómo puedo empezar un negocio de belleza
+    - qué necesito para abrir un salón de uñas
+    - qué permisos se requieren para un spa
+    - cómo emprender un negocio de fotografía
+    - quiero montar un estudio de grabación, cómo lo hago
+    - qué requisitos hay para abrir un negocio de limpieza
+    - necesito información sobre abrir una empresa de construcción
+    - cómo abrir una tienda online legalmente
+    - qué se necesita para montar un negocio de catering
+    - cómo abrir una guardería infantil
+    - cuáles son los trámites para una clínica veterinaria
+    - cómo abrir una farmacia
+    - qué necesito para empezar un negocio de venta de autos
+    - qué permisos se requieren para un bar
+    - cómo puedo abrir un hostal en mi ciudad
+    - cuáles son los requisitos para una agencia de publicidad
+    - qué se necesita para abrir una tienda de abarrotes
+    - cómo iniciar un taller mecánico
+    - qué necesito para abrir una ferretería
+    - cuáles son los permisos para un centro de masajes
+    - cómo abrir una tienda de celulares y accesorios
+    - qué trámites debo hacer para abrir un autolavado
+    - cómo puedo abrir una barbería
+    - qué necesito para abrir un centro de tatuajes
+    - cómo abrir una tienda de mascotas
+    - qué requisitos hay para un criadero de perros
+    - cómo abrir un hospital veterinario
+    - qué necesito para abrir una escuela particular
+    - qué permisos se requieren para abrir un kínder privado
+    - cómo puedo abrir un call center
+    - qué necesito para abrir una consultoría de negocios
+    - cómo abrir una tienda de segunda mano
+    - qué trámites necesito para abrir un taller de costura
+    - cómo abrir una tienda de ropa deportiva
+    - qué permisos necesito para abrir una agencia de modelos
+    - cómo abrir un centro de reciclaje
+    - qué requisitos hay para abrir una fábrica de muebles
+    - cómo iniciar un negocio de pastelería
+    - qué permisos necesito para abrir un parque de diversiones
+    - cómo abrir un salón de eventos
+    - qué se necesita para abrir un cine independiente
+    - cómo iniciar un negocio de delivery de comida
+    - qué trámites necesito para abrir una productora audiovisual
+    - cómo abrir un coworking
+    - qué requisitos hay para abrir una tienda de insumos médicos
+    - cómo abrir una óptica
+    - qué necesito para abrir una agencia de empleo
+    - cómo puedo abrir una agencia de bienes raíces
+    - qué permisos necesito para abrir un taller de carpintería
+    - cómo iniciar un negocio de decoración de interiores
+    - qué trámites necesito para abrir una agencia de marketing digital
+    - cómo puedo abrir una tienda de cómics y coleccionables
+    - qué requisitos hay para abrir un centro de yoga
+    - cómo abrir una tienda de productos ecológicos
+    - qué permisos necesito para abrir una distribuidora de alimentos
+    - cómo iniciar un negocio de venta de uniformes escolares
+    - qué trámites necesito para abrir una imprenta
+    - cómo abrir una panadería artesanal
+    - qué permisos necesito para abrir un vivero
+    - cómo iniciar un negocio de jardinería
+    - qué requisitos hay para abrir una agencia de seguridad privada
+    - cómo abrir una empresa de mantenimiento industrial
+    - qué necesito para abrir una fábrica de zapatos
+    - cómo puedo abrir un negocio de alquiler de autos
+    - qué permisos necesito para abrir un hotel boutique
+    - cómo abrir un hostal ecológico
+    - qué trámites necesito para abrir un taller de serigrafía
+    - cómo abrir una galería de arte
+    - qué permisos necesito para abrir un barbershop
+    - cómo iniciar un negocio de sublimación y estampados
+    - qué requisitos hay para abrir una tienda de vinos y licores
+    - cómo puedo abrir un food court
+    - qué necesito para abrir una empresa de logística y paquetería
+    - qué trámites debo hacer para abrir una empresa de software
+    - cómo iniciar un negocio de fabricación de velas artesanales
+    - qué permisos necesito para abrir un parque acuático
+    - cómo abrir una tienda de productos naturales
+    - qué requisitos hay para abrir una empresa de importación y exportación
+    - cómo puedo abrir una fábrica de papel reciclado
+    - qué necesito para abrir una clínica de fisioterapia
+    - qué trámites debo hacer para abrir una agencia de viajes turísticos
+    - cómo abrir una escuela de danza
+    - qué permisos necesito para abrir una academia de música
+    - cómo abrir un estudio de arquitectura
+    - qué requisitos hay para abrir una tienda de electrónicos reacondicionados
+    - cómo puedo abrir un negocio de impresión 3D
+    - qué trámites necesito para abrir una granja de productos orgánicos
+    - cómo abrir un negocio de turismo de aventura
+    - qué permisos necesito para abrir un hotel para mascotas
+    - cómo abrir una tienda de repostería creativa
+    - qué requisitos hay para abrir una lavandería autoservicio
+    - cómo puedo abrir un spa de lujo
+    - qué trámites debo hacer para abrir una distribuidora de cosméticos
+    - cómo abrir una empresa de desarrollo de videojuegos
+    - qué permisos necesito para abrir un gimnasio de crossfit
+    - cómo abrir una fábrica de chocolate artesanal
+    - qué requisitos hay para abrir una tienda de ropa vintage
+    - cómo puedo abrir un negocio de servicios funerarios
+    - qué trámites debo hacer para abrir una distribuidora de agua purificada
+    - cómo abrir un club nocturno
+    - qué permisos necesito para abrir un salón de belleza vegano
+    - cómo iniciar un negocio de venta de productos para bebés
+    - qué requisitos hay para abrir una empresa de traducción
+    - cómo abrir una tienda de artículos para camping y senderismo
+    - cómo puedo iniciar un negocio
+    - cómo puedo empezar un negocio
+    - qué necesito para abrir un negocio
+    - qué se requiere para montar un negocio
+    - cómo hacer para tener mi propio negocio
+    - qué se necesita para emprender
+    - cómo empiezo mi emprendimiento
+    - cómo puedo emprender un negocio
+    - quiero empezar mi empresa, ¿qué debo hacer?
+    - cómo abrir una empresa desde cero
+    - cómo arranco mi propio negocio
+    - qué pasos debo seguir para iniciar un emprendimiento
+    - qué tengo que hacer para ser emprendedor
+    - cómo montar un negocio desde cero
+    - quiero comenzar un negocio, ¿qué me recomiendas?
+    - cómo crear mi propia empresa
+    - cuáles son los primeros pasos para iniciar un negocio
+    - qué trámites debo hacer para poner un negocio
+    - quiero ser empresario, ¿por dónde empiezo?
+    - cómo empiezo a vender mis productos
+    - cómo poner mi propio emprendimiento
+    - qué necesito para registrar una empresa
+    - cómo iniciar mi empresa de forma legal
+    - qué documentos necesito para abrir un negocio
+    - cómo abrir un pequeño negocio en casa
+    - qué permisos necesito para montar un negocio
+    - cómo planificar un negocio desde cero
+    - cuáles son los requisitos para abrir una empresa
+    - cómo hacer un plan de negocios para empezar
+
+- intent: faq_licencias_y_permisos
+  examples: |
+    - cómo obtengo una licencia comercial?
+    - necesito un abogado para mi negocio?
+    - cuáles son los trámites para abrir un local?
+    - qué permisos necesito para operar un negocio?
+    - cómo solicitar un permiso de operación?
+    - cuáles son los requisitos para obtener una licencia de funcionamiento?
+    - necesito permisos para vender en la calle?
+    - cómo tramitar el uso de suelo para mi negocio?
+    - dónde puedo obtener mi licencia comercial?
+    - qué diferencia hay entre licencia de funcionamiento y permiso municipal?
+    - cuánto cuesta obtener un permiso comercial?
+    - qué permisos necesito para vender comida?
+    - necesito licencia sanitaria para mi restaurante?
+    - dónde tramito la licencia de apertura de negocio?
+    - qué permisos necesito para abrir un local en un centro comercial?
+    - cómo renovar mi licencia de negocio?
+    - qué sanciones hay si opero sin licencia?
+    - puedo vender sin licencia si mi negocio es pequeño?
+    - cómo puedo obtener permisos municipales para mi empresa?
+    - qué trámites necesito para importar productos?
+
+- intent: faq_impuestos_negocio
+  examples: |
+    - qué impuestos debo pagar como emprendedor?
+    - hay financiamiento para pequeñas empresas?
+    - cómo hago un plan de negocios?
+    - cómo registro mi empresa ante hacienda?
+    - qué impuestos debo pagar si vendo productos?
+    - cuáles son los impuestos para negocios pequeños?
+    - cómo darme de alta en el SAT?
+    - qué régimen fiscal me conviene para mi empresa?
+    - cómo facturar como empresa?
+    - necesito pagar IVA si tengo un negocio?
+    - cómo declarar impuestos si soy autónomo?
+    - qué impuestos pago si tengo una tienda online?
+    - qué pasa si no pago los impuestos de mi negocio?
+    - cómo puedo obtener mi RFC empresarial?
+    - necesito contador para manejar los impuestos de mi negocio?
+    - qué deducciones fiscales existen para emprendedores?
+    - cómo hago mi declaración anual como empresa?
+    - cuáles son los impuestos si soy freelancer?
+    - cómo emito facturas electrónicas para mi negocio?
+    - cómo afecta el pago de impuestos a mi rentabilidad?
+    - qué obligaciones fiscales tengo como dueño de empresa?
+
+- intent: faq_financiamiento
+  examples: |
+    - cómo puedo financiar mi negocio?
+    - qué opciones de crédito existen para emprendedores?
+    - dónde puedo conseguir inversión para mi empresa?
+    - existen subsidios para nuevos negocios?
+    - cómo conseguir un préstamo para abrir un negocio?
+    - qué bancos ofrecen financiamiento para empresas nuevas?
+    - cómo acceder a programas gubernamentales de apoyo a emprendedores?
+    - puedo pedir un préstamo si mi negocio es nuevo?
+    - qué requisitos necesito para acceder a un crédito empresarial?
+    - hay programas de financiamiento para pequeñas empresas?
+    - cómo atraer inversionistas a mi negocio?
+    - cuál es la mejor manera de obtener capital para empezar?
+    - puedo recibir financiamiento si no tengo historial crediticio?
+    - cómo aplicar a un fondo de inversión?
+    - qué documentos necesito para solicitar un crédito empresarial?
+    - existen programas de ayuda para startups?
+    - dónde puedo solicitar un crédito para abrir mi negocio?
+    - cómo saber si soy elegible para un crédito bancario?
+
+- intent: faq_planificacion_negocio
+  examples: |
+    - cómo hago un plan de negocios?
+    - cómo definir la visión y misión de mi empresa?
+    - qué pasos debo seguir para planear mi empresa?
+    - cómo calcular la inversión inicial para mi empresa?
+    - qué aspectos debo considerar antes de emprender?
+    - cómo encontrar un nicho de mercado rentable?
+    - cómo validar una idea de negocio antes de invertir?
+    - qué estrategias puedo usar para atraer clientes?
+    - cómo analizar la competencia antes de abrir un negocio?
+    - qué errores debo evitar al empezar un negocio?
+    - cómo establecer precios para mis productos o servicios?
+    - cómo elegir la mejor ubicación para mi negocio?
+    - qué herramientas me ayudan a organizar mi empresa?
+    - cómo optimizar mis costos al iniciar un negocio?
+    - cómo diseñar una estrategia de marketing efectiva?
+    - qué modelos de negocio son más rentables en 2024?
+    - cómo desarrollar un producto exitoso?
+    - qué diferencia hay entre emprender online y físico?
+
+### PREGUNTAS COMUNES
+- intent: faq_horario_atencion
+  examples: |
+    - cuál es tu horario de atención?
+    - cuál es su horario de atención?
+    - qué horario tienen?
+    - en qué horario están disponibles?
+    - a qué hora abren?
+    - a qué hora cierran?
+    - cuál es el horario de servicio?
+    - hasta qué hora atienden?
+    - desde qué hora están abiertos?
+    - hasta qué hora están abiertos?
+    - qué horario manejan?
+    - me puedes decir el horario de atención?
+    - a qué hora puedo ir?
+    - cuál es el horario de trabajo?
+    - cuándo están abiertos?
+    - trabajan los fines de semana?
+    - abren los domingos?
+    - atienden en días festivos?
+    - tienen horario de atención los sábados?
+    - cuál es su horario de oficina?
+
+- intent: faq_ubicacion
+  examples: |
+    - dónde están ubicados?
+    - dónde se encuentran?
+    - en qué dirección están?
+    - cuál es su dirección?
+    - cómo llego a su oficina?
+    - cómo puedo ir a su local?
+    - en qué parte están?
+    - cuál es la ubicación de su empresa?
+    - tienen oficina física?
+    - dónde puedo visitarlos?
+    - me pueden dar su dirección?
+    - cuál es su dirección exacta?
+    - en qué ciudad están?
+    - en qué zona están ubicados?
+    - están en el centro de la ciudad?
+    - están cerca de algún punto de referencia?
+    - qué sucursales tienen?
+    - tienen sucursales?
+    - dónde están sus sucursales?
+    - tienen más de una ubicación?
+    - cuál es la dirección de la sucursal más cercana?
+
+- intent: faq_contacto
+  examples: |
+    - cómo puedo contactarlos?
+    - cómo me comunico con ustedes?
+    - cuál es su número de teléfono?
+    - cuál es su correo electrónico?
+    - cómo los puedo llamar?
+    - me pueden dar su contacto?
+    - tienen servicio en línea?
+    - tienen atención telefónica?
+    - ofrecen soporte por WhatsApp?
+    - tienen chat en vivo?
+    - tienen algún número de WhatsApp?
+    - cuál es su contacto?
+    - cómo puedo hablar con alguien de su equipo?
+    - tienen atención al cliente?
+    - cómo solicito información?
+    - dónde los puedo contactar?
+    - tienen redes sociales?
+    - cómo puedo enviarles un mensaje?
+    - responden por email?
+    - tienen soporte en línea?
+
+- intent: faq_precios
+  examples: |
+    - cuánto cuesta el servicio?
+    - cuánto cobran?
+    - cuál es el precio?
+    - cuál es el costo del servicio?
+    - cuánto vale?
+    - ofrecen asesoría gratuita?
+    - tienen planes de pago?
+    - hay algún costo?
+    - cuánto cuesta contratar su servicio?
+    - tienen precios especiales?
+    - manejan descuentos?
+    - tienen promociones?
+    - hay tarifas por suscripción?
+    - ofrecen pruebas gratis?
+    - cuánto debo pagar?
+    - hay costos adicionales?
+    - tienen planes mensuales?
+    - tienen planes anuales?
+    - cuál es la forma de pago?
+    - aceptan tarjetas de crédito?
+    - se puede pagar en efectivo?
+    - el servicio es gratis?
+
+- intent: faq_citas
+  examples: |
+    - cómo puedo hacer una cita?
+    - cómo agendar una cita?
+    - cómo programo una consulta?
+    - necesito agendar una consulta?
+    - cómo reservo una cita?
+    - tienen sistema de reservas?
+    - cómo pedir una cita?
+    - puedo hacer una cita en línea?
+    - cómo agendo una visita?
+    - aceptan citas sin previa reserva?
+    - es necesario agendar una cita?
+    - cuál es el proceso para reservar una consulta?
+    - puedo sacar una cita por teléfono?
+    - tienen disponibilidad para citas?
+    - hay horarios disponibles para agendar?
+    - puedo reservar una cita para hoy?
+    - cómo puedo cambiar mi cita?
+    - puedo cancelar una cita?
+    - se pueden hacer citas urgentes?
+    - cuál es el tiempo de espera para una cita?
+    - ofrecen citas el mismo día?
+
+### OTROS INTENTS
+- intent: faq_agradecimiento
+  examples: |
+    - muchas gracias
+    - gracias
+    - te lo agradezco
+    - mil gracias
+    - muy amable
+    - gracias por tu ayuda
+    - gracias por la información
+    - se agradece
+    - gracias, muy útil
+    - te lo agradezco mucho
+    - estoy muy agradecido
+    - infinitas gracias
+    - te doy las gracias
+    - gracias por responder
+    - gracias por tu tiempo
+    - muchas gracias por todo
+    - gracias por tu paciencia
+    - un millón de gracias
+    - gracias, excelente servicio
+    - gracias, eres el mejor
+
+- intent: faq_disculpa
+  examples: |
+    - lo siento
+    - perdón
+    - disculpa
+    - me equivoqué
+    - fue mi error
+    - mis disculpas
+    - no era mi intención
+    - no quise hacerlo
+    - lamento el error
+    - lo lamento
+    - perdona mi error
+    - no volverá a pasar
+    - discúlpame por favor
+    - fue un malentendido
+    - cometí un error
+    - espero que puedas perdonarme
+    - siento la confusión
+
+- intent: faq_solicitud_ayuda
+  examples: |
+    - puedes explicarlo de otra manera?
+    - no entendí, puedes repetirlo?
+    - dame más detalles sobre eso
+    - podrías ser más claro?
+    - podrías explicarlo con otras palabras?
+    - puedes decirlo de otra forma?
+    - no me quedó claro, puedes explicarlo de nuevo?
+    - puedes darme más información?
+    - me puedes dar un ejemplo?
+    - no lo comprendo bien, explícalo mejor
+    - podrías ampliar tu respuesta?
+    - dime más sobre eso
+    - explícame un poco más
+    - necesito más detalles
+    - repítemelo por favor
+    - lo puedes decir de otra manera?
+    - dame una explicación más sencilla
+    - no estoy seguro de entender, ¿puedes aclararlo?
+
+- intent: faq_contratar_servicios_identidad
+  examples: |
+    - ¿Cómo sé que debo contratar servicios de identidad México?
+
+- intent: faq_tasa_rendimientos
+  examples: |
+    - ¿Cuál es la tasa de rendimientos esperada al contratar sus servicios?
+
+- intent: faq_metodologias
+  examples: |
+    - ¿Cuáles son nuestras metodologías?
+
+
+- intent: faq_generales
+  examples: |
+    - ¿Es necesario pagar grandes cantidades de dinero para tener una estrategia innovadora?
+    - ¿Las fintech serán el futuro del dinero?
+    - ¿Por qué el robo de identidad digital sigue siendo el delito con mayor índice de crecimiento?
+    - ¿Qué es DevOps?
+    - ¿Cuáles son las etapas de DevOps?
+    - ¿En qué consiste la metodología de Design Sprint?
+    - ¿Cuáles son las etapas de la metodología de Design Sprint?
+    
+- intent: faq_solicitar_reporte
+  examples: |
+    - ¿Puedes hacer un reporte de [https://empresa1.com](company_urls) y [https://empresa2.com](company_urls)?
+    - Necesito un análisis de estas empresas: [https://empresa1.com](company_urls)
+    - Genera un informe sobre [https://empresa3.com](company_urls)
+    - Haz un reporte de [https://ejemplo.org](company_urls)
+    - Quiero un informe de esta empresa: [https://miempresa.net](company_urls)
+    - ¿Podrías generar un informe sobre [https://compania.com](company_urls)?
+    - Necesito un reporte detallado de [https://negocio1.com](company_urls)
+    - Me gustaría obtener un análisis de [https://startup.com](company_urls)
+    - ¿Puedes proporcionarme un informe sobre [https://corp1.com](company_urls)?
+    - Dame un análisis de [https://negocio2.com](company_urls)
+    - Quiero un informe sobre [https://empresa4.com](company_urls)
+    - Realiza un reporte sobre [https://webempresa.com](company_urls)
+    - ¿Me puedes hacer un análisis de [https://compania2.com](company_urls)?
+    - Genera un reporte de [https://sitioempresarial.com](company_urls)
+    - Necesito información sobre [https://org1.com](company_urls)
+    - Haz un análisis sobre [https://firma.com](company_urls)
+    - Elabora un informe sobre [https://empresa5.com](company_urls)
+    - ¿Podrías analizar [https://corporacion.com](company_urls) y darme un reporte?
+    - Solicito un informe de [https://negocio3.com](company_urls)
+    - Quisiera un análisis de [https://institucion.com](company_urls)
+    - ¿Puedes generar un informe sobre [https://emprendimiento.com](company_urls)?
+    - Proporciona un reporte sobre [https://entidad.com](company_urls)
+    - ¿Puedes hacerme un análisis de [https://compania3.com](company_urls)?
+    - Me gustaría un informe detallado de [https://org2.com](company_urls)
+    - Dime qué información puedes obtener sobre [https://empresa6.com](company_urls)
+    - ¿Puedes crear un reporte de [https://negocio4.com](company_urls)?
+    - Realiza un análisis de [https://webcorporativa.com](company_urls)
+    - Dame un informe detallado sobre [https://servicio.com](company_urls)
+    - ¿Qué puedes decirme en un reporte sobre [https://corporativo.com](company_urls)?
+    - Genera un informe ejecutivo sobre [https://startup2.com](company_urls)
+    - ¿Podrías hacer un reporte de [https://compania4.com](company_urls)?
+    - Quiero conocer más sobre [https://empresa7.com](company_urls), ¿me das un informe?
+    - Obtén información sobre [https://negocio5.com](company_urls) y preséntala en un informe.
+    - Necesito un reporte detallado de estas empresas: [https://empresa8.com](company_urls) y [https://empresa9.com](company_urls)
+    - Realiza un informe comparativo entre [https://empresa10.com](company_urls) y [https://empresa11.com](company_urls)
+    - Genera un análisis profundo de [https://startup3.com](company_urls)
+    - ¿Puedes proporcionar un resumen ejecutivo de [https://compania5.com](company_urls)?
+    - Solicito un reporte actualizado de [https://firma2.com](company_urls)
+    - ¿Puedes analizar los datos de [https://org3.com](company_urls) y hacerme un reporte?
+
+- intent: faq_cotizar_producto
+  examples: |
+    - ¿Cuánto cuesta el [producto1](producto)?
+    - Dame el precio de [producto2](producto)
+    - Quiero una cotización de [producto3](producto)
+
+- intent: faq_analizar_imagen
+  examples: |
+    - Analiza esta imagen.
+    - ¿Qué hay en la imagen?
+    - ¿Qué ves en la imagen?
+    - Examina esta imagen.
+    - Mira esta imagen.
+    - ¿Puedes ver esta imagen?
+    - Dime qué ves en la imagen.
+    - Observa la imagen.
+    - ¿Qué contiene la imagen?
+    - Describe la imagen.
+    - ¿Qué hay aquí?
+    - Analiza esto.
+    - Mira esto.
+    - ¿Puedes analizar esto?
+    - Revisa esta imagen.
+    - Interpreta la imagen.
+    - ¿Qué notas en la imagen?
+    - Describe esto.
+    - ¿Qué hay en esta foto?
+    - ¿Qué aparece en la imagen?
+    - ¿Qué detectas aquí?
+    - ¿Qué puedes ver aquí?
+    - ¿Puedes ver lo que hay en la imagen?
+    - ¿Puedes decirme qué hay en esta imagen?
+    - Examina esta imagen y dime qué ves.
+    - ¿Puedes identificar lo que hay en la imagen?
+    - Dime qué representa esta imagen.
+    - Quiero que examines esta imagen.
+    - ¿Puedes procesar esta imagen y decirme qué es?
+    - ¿Qué elementos hay en esta imagen?
+    - ¿Puedes describirme la imagen que te envié?
+    - Analiza la foto y dime qué contiene.
+    - ¿Puedes interpretar esta imagen?
+    - Dime qué detectas en esta imagen.
+    - Quiero que identifiques los objetos en esta imagen.
+    - ¿Puedes extraer información de esta imagen?
+    - ¿Qué puedes decir sobre la imagen que adjunté?
+    - Examina la imagen y dime qué significa.
+    - ¿Puedes reconocer los elementos en la imagen?
+    - Describe la imagen que te acabo de enviar.
+    - Observa esta imagen y dime qué es.
+    - ¿Qué detalles puedes notar en esta imagen?
+    - ¿Puedes hacer un reconocimiento de esta imagen?
+    - ¿Qué información puedes obtener de esta imagen?
+    - ¿Puedes detectar texto en esta imagen?
+    - ¿Puedes describir el contenido de la imagen?
+    - Examina esta imagen y dime si hay algo importante en ella.
+    - ¿Puedes detectar rostros en esta imagen?
+    - ¿Puedes identificar el texto en la imagen?
+    - ¿Puedes extraer objetos de esta imagen?
+    - Quiero saber qué hay en la imagen que envié.
+    - ¿Puedes darme un análisis detallado de esta imagen?
+    - ¿Puedes decirme si hay personas en esta imagen?
+    - Quiero saber qué tipo de imagen es esta.
+    - ¿Puedes describir los colores y formas en esta imagen?
+    - Analiza esta foto y dime qué detectas en ella.
+    - Analiza este logo.
+    - ¿Qué puedes decir sobre este logotipo?
+    - Examina este logotipo y dime qué representa.
+    - ¿Puedes analizar este banner?
+    - Quiero que examines este gráfico.
+    - ¿Puedes interpretar este cartel?
+    - Analiza esta ilustración.
+    - ¿Qué puedes ver en esta infografía?
+    - ¿Puedes procesar este diagrama y explicarlo?
+    - Examina esta caricatura y dime qué significa.
+    - ¿Puedes describir este póster?
+    - Dime qué hay en este icono.
+    - ¿Puedes identificar lo que aparece en este dibujo?
+    - ¿Qué hay en este mural?
+    - Observa este esquema y dime qué representa.
+    - Analiza esta señal y dime qué significa.
+    - ¿Puedes interpretar este emblema?
+    - Quiero saber qué representa este símbolo.
+    - ¿Qué detalles puedes extraer de este escudo?
+    - ¿Puedes decirme qué información hay en esta gráfica?
+    - Examina este boceto y dime qué ves.
+    - ¿Puedes detectar elementos en este diagrama?
+    - ¿Qué muestra esta tabla visual?
+    - Quiero que analices esta animación.
+    - ¿Puedes interpretar esta representación visual?
+    - ¿Puedes describir este retrato?
+    - Observa esta viñeta y dime qué significa.
+    - Analiza esta captura de pantalla.
+    - ¿Qué información puedes extraer de este panfleto?
+    - Examina esta diapositiva y dime qué contiene.
+    - ¿Puedes identificar las formas en este patrón?
+    - ¿Puedes analizar esta fotografía aérea?
+    - Quiero que examines esta imagen en blanco y negro.
+    - ¿Puedes interpretar este collage?
+    - ¿Qué elementos puedes reconocer en esta composición visual?
+
+- intent: set_reminder
+  examples: |
+    - Recuérdame que [tengo una reunión](mensaje_recordatorio) el [lunes a las 10 AM](fecha_recordatorio).
+    - Quiero un recordatorio para [mi cita médica](mensaje_recordatorio) el [5 de abril a las 3 PM](fecha_recordatorio).
+    - Agrégame un recordatorio para [llamar al cliente](mensaje_recordatorio) el [viernes a las 9 AM](fecha_recordatorio).
+    - Quiero guardar un recordatorio sobre [comprar entradas](mensaje_recordatorio) el [próximo sábado](fecha_recordatorio).
+    - Anota un recordatorio para [entregar el informe](mensaje_recordatorio) el [24 de mayo](fecha_recordatorio).
+    - Recuérdame que [tengo que enviar un informe](mensaje_recordatorio) [mañana a las 10 AM](fecha_recordatorio).
+    - Recuérdame que [llame a Juan](mensaje_recordatorio) [pasado mañana a las 2 PM](fecha_recordatorio).
+    - Necesito un recordatorio para [la cita con el doctor](mensaje_recordatorio) [en dos días](fecha_recordatorio).
+    - Guarda un recordatorio de [mi reunión semanal](mensaje_recordatorio) [el próximo lunes](fecha_recordatorio).
+    - [Tengo que enviar el correo](mensaje_recordatorio) [esta tarde a las 4](fecha_recordatorio).
+    - Agéndame una cita para [reunirme con el equipo](mensaje_recordatorio) el [martes a las 9 AM](fecha_recordatorio).
+    - Hazme recordar [la llamada con el cliente](mensaje_recordatorio) [mañana a las 11 AM](fecha_recordatorio).
+    - Quiero que me avises de [mi cita en el dentista](mensaje_recordatorio) [el 3 de mayo a las 2 PM](fecha_recordatorio).
+    - Recuérdame [llevar el informe a la reunión](mensaje_recordatorio) [el jueves a las 5 PM](fecha_recordatorio).
+    - Necesito un recordatorio para [comprar el regalo](mensaje_recordatorio) [el viernes antes de las 12 PM](fecha_recordatorio).
+    - Anótame [llamar a Pedro](mensaje_recordatorio) [el miércoles por la tarde](fecha_recordatorio).
+    - Añádeme un recordatorio para [revisar el presupuesto](mensaje_recordatorio) [este jueves a las 6 PM](fecha_recordatorio).
+    - Agéndame [una llamada con el abogado](mensaje_recordatorio) [el próximo lunes a las 10 AM](fecha_recordatorio).
+    - Recuérdame que [lleve mi presentación](mensaje_recordatorio) [el lunes por la mañana](fecha_recordatorio).
+    - Necesito un recordatorio para [firmar el contrato](mensaje_recordatorio) [el martes a las 3 PM](fecha_recordatorio).
+    - Agéndame [una cita con el psicólogo](mensaje_recordatorio) [el viernes a las 9 AM](fecha_recordatorio).
+    - Recuérdame que [le mande un mensaje a Ana](mensaje_recordatorio) [mañana a las 7 PM](fecha_recordatorio).
+    - Quiero un recordatorio para [renovar el pasaporte](mensaje_recordatorio) [el mes que viene](fecha_recordatorio).
+    - Anota un recordatorio para [hacer las compras](mensaje_recordatorio) [el sábado por la mañana](fecha_recordatorio).
+    - Recuérdame que [debo revisar los correos](mensaje_recordatorio) [este martes a las 3 PM](fecha_recordatorio).
+    - Guarda un recordatorio para [pagar la factura de la luz](mensaje_recordatorio) [el próximo jueves](fecha_recordatorio).
+    - Quiero un recordatorio para [programar una llamada con el proveedor](mensaje_recordatorio) [el lunes a las 4 PM](fecha_recordatorio).
+    - Hazme recordar [la cita con el abogado](mensaje_recordatorio) [el miércoles a las 9 AM](fecha_recordatorio).
+    - Anota que [debo llamar a Marta](mensaje_recordatorio) [el jueves por la tarde](fecha_recordatorio).
+    - Quiero un recordatorio de [hacer el pago de la renta](mensaje_recordatorio) [el 10 de abril](fecha_recordatorio).
+    - Recuérdame que [responda el correo de Juan](mensaje_recordatorio) [mañana antes de las 12 PM](fecha_recordatorio).
+    - Anota un recordatorio de [revisar los documentos del proyecto](mensaje_recordatorio) [el viernes por la tarde](fecha_recordatorio).
+    - Necesito un recordatorio para [completar la tarea de marketing](mensaje_recordatorio) [el jueves a las 10 AM](fecha_recordatorio).
+    - Recuérdame que [compre el billete de avión](mensaje_recordatorio) [el lunes por la tarde](fecha_recordatorio).
+    - Quiero guardar un recordatorio para [hacer ejercicio](mensaje_recordatorio) [el sábado a las 8 AM](fecha_recordatorio).
+    - Recuérdame que [envíe los documentos](mensaje_recordatorio) [el martes a las 5 PM](fecha_recordatorio).
+    - Agéndame un recordatorio para [hacer una reunión con el equipo de ventas](mensaje_recordatorio) [el miércoles a las 10 AM](fecha_recordatorio).
+    - Necesito un recordatorio para [llamar a mi madre](mensaje_recordatorio) [esta tarde a las 5 PM](fecha_recordatorio).
+    - Hazme recordar [hacer una lista de compras](mensaje_recordatorio) [el próximo domingo](fecha_recordatorio).
+    - Añádeme un recordatorio para [enviar la propuesta de negocio](mensaje_recordatorio) [mañana a las 9 AM](fecha_recordatorio).
+    - Recuérdame que [tengo una videollamada con el jefe](mensaje_recordatorio) [el lunes a las 11 AM](fecha_recordatorio).
+    - Quiero un recordatorio para [revisar las métricas de ventas](mensaje_recordatorio) [el viernes a las 12 PM](fecha_recordatorio).
+    - Agéndame una cita para [revisar los informes financieros](mensaje_recordatorio) [el jueves a las 10 AM](fecha_recordatorio).
+    - Hazme recordar [completar la inscripción al curso](mensaje_recordatorio) [el martes por la mañana](fecha_recordatorio).
+    - Recuérdame que [entregue el informe de resultados](mensaje_recordatorio) [mañana a las 9 AM](fecha_recordatorio).
+    - Añádeme un recordatorio para [revisar el presupuesto con el equipo](mensaje_recordatorio) [el miércoles por la tarde](fecha_recordatorio).
+
+- intent: start_brand_evaluation
+  examples: |
+    - Quiero evaluar mi marca
+    - Anita, quiero saber cómo está la imagen de mi empresa
+    - Me gustaría hacer una evaluación de branding
+    - ¿Podrías ayudarme a revisar la imagen de marca?
+
+- intent: responder_pregunta_evaluacion
+  examples: |
+    - [5](numero)
+    - [4](numero)
+    - [3](numero)
+    - [2](numero)
+    - [1](numero)
+
+- intent: nlu_fallback
+  examples: |
+    - Lo siento, no entendí.
+    - No sé qué decir.
+    - No comprendo lo que dices.
+- lookup: producto
+  examples: |
+    - iphone
+    - samsung galaxy
+    - xiaomi redmi
+    - trompeta
+    - guitarra eléctrica
+    - clarinete
+    - violonchelo
+    - flauta
+    - saxofón
+    - trombón
+    - tuba
+    - acordeón
+    - banjo
+    - mandolina
+    - ukulele
+    - armónica
+    - marimba
+    - xilófono
+    - castañuelas
+    - pandereta
+    - bongos
+    - congas
+    - timbales
+    - djembe
+    - tambor
+    - triángulo
+    - platillos
+    - cencerro
+    - maracas
+    - güiro
+    - cabasa
+    - kalimba
+    - didgeridoo
+    - ocarina
+    - zurna
+    - duduk
+    - shofar
+    - erhu
+    - sitar
+    - tabla
+    - dholak
+    - mridangam
+    - tambura
+    - veena
+    - sarangi
+    - nyckelharpa
+    - hardanger fiddle
+    - vielle
+    - rebab
+    - morin khuur
+    - khoomei
+    - armonio
+    - órgano
+    - sintetizador
+    - theremín
+    - samplers
+    - loop station
+    - metronomo
+    - afinador
+    - pua
+    - cejuela
+    - traste
+    - puente
+    - clavijas
+    - cuerdas
+    - baquetas
+    - palas
+    - mazo
+    - cepillo
+    - rasgueo
+    - punteo
+    - tapping
+    - bending
+    - slide
+    - palm mute
+    - harmonics
+    - feedback
+    - distorsión
+    - overdrive
+    - fuzz
+    - wah-wah
+    - chorus
+    - flanger
+    - phaser
+    - delay
+    - reverb
+    - compresor
+    - limitador
+    - ecualizador
+    - puerta de ruido
+    - DI box
+    - micrófono dinámico
+    - micrófono de condensador
+    - micrófono de cinta
+    - micrófono lavalier
+    - micrófono shotgun
+    - micrófono de mesa
+    - micrófono de pie
+    - soporte para micrófono
+    - filtro antipop
+    - pantalla acústica
+    - cabina de grabación
+    - grabadora portátil
+    - grabadora de mano
+    - grabadora de audio
+    - grabadora de video
+    - cámara web
+    - cámara de seguridad
+    - cámara de acción
+    - cámara réflex
+    - cámara sin espejo
+    - lente gran angular
+    - lente telefoto
+    - lente macro
+    - filtro ND
+    - filtro polarizador
+    - trípode
+    - monopod
+    - estabilizador
+    - riel deslizante
+    - cabezal de trípode
+    - zapata para trípode
+    - control remoto
+    - disparador remoto
+    - cable de extensión
+    - adaptador de corriente
+    - batería extra
+    - tarjeta de memoria
+    - lector de tarjetas
+    - disco duro externo
+    - unidad flash
+    - cable USB
+    - cable HDMI
+    - cable de audio
+    - cable de video
+    - conector jack
+    - conector XLR
+    - conector RCA
+    - conector HDMI
+    - conector USB-C
+    - conector Lightning
+    - adaptador de viaje
+    - regleta de enchufes
+    - protector de sobretensión
+    - batería portátil
+    - cargador solar
+    - generador eléctrico
+    - planta eléctrica
+    - inversor de corriente
+    - regulador de voltaje
+    - estabilizador de voltaje
+    - multímetro
+    - tester
+    - soldador
+    - cautín
+    - cinta aislante
+    - taladro percutor
+    - amoladora
+    - lijadora
+    - esmeril
+    - compresor
+    - pistola de aire
+    - pistola de calor
+    - pistola de silicona
+    - remachadora
+    - grapadora industrial
+    - broca
+    - disco de corte
+    - guantes de seguridad
+    - casco de seguridad
+    - gafas de seguridad
+    - botas de seguridad
+    - chaleco reflectivo
+    - arnés
+    - escalera
+    - andamio
+    - carpa
+    - toldo
+    - sombrilla
+    - hamaca
+    - colchoneta
+    - sleeping
+    - linterna
+    - lámpara recargable
+    - brújula
+    - GPS
+    - termo de camping
+    - kit de supervivencia
+    - navaja suiza
+    - encendedor
+    - fogón portátil
+    - tanque de gas
+    - silla plegable
+    - mesa plegable
+    - nevera portátil
+    - kayak
+    - canoa
+    - remo
+    - chaleco salvavidas
+    - casco deportivo
+    - patines
+    - skateboard
+    - balón de fútbol
+    - balón de baloncesto
+    - balón de voleibol
+    - guantes de boxeo
+    - saco de boxeo
+    - mancuernas
+    - barra olímpica
+    - disco de pesas
+    - banca de pesas
+    - caminadora
+    - bicicleta estática
+    - elíptica
+    - escaladora
+    - cuerda para saltar
+    - colchoneta de yoga
+    - banda elástica
+    - aro de pilates
+    - kettlebell
+    - rodillo de espuma
+    - máquina de remo
+    - guantes de gimnasio
+    - traje de baño
+    - gafas de natación
+    - gorro de natación
+    - tabla de surf
+    - tabla de bodyboard
+    - snorkel
+    - aletas
+    - tanque de buceo
+    - chaleco de buceo
+    - máscara de buceo
+    - detector de metales
+    - cámara deportiva
+    - trípode
+    - estabilizador
+    - micrófono
+    - micrófono inalámbrico
+    - consola de audio
+    - mezcladora
+    - parlante de estudio
+    - teclado musical
+    - guitarra eléctrica
+    - guitarra acústica
+    - bajo eléctrico
+    - batería
+    - violín
+    - saxofón
+    - trompeta
+    - flauta
+    - ukelele
+    - armónica
+    - micrófono de condensador
+    - controlador midi
+    - interfaz de audio
+    - software de producción musical
+
+- intent: cotizar_producto
+  examples: |
+    - quiero cotizar un [iphone 15](producto)
+    - cotiza [laptop gaming](producto)
+    - busca precios de [auriculares bluetooth](producto)
+    - cuánto cuesta un [samsung galaxy](producto)
+    - precio de [macbook pro](producto)
+    - cotización de [nintendo switch](producto)
+    - buscar [xiaomi redmi](producto)
+    - quiero saber el precio de [airpods](producto)
+    - cotizar [televisor 55 pulgadas](producto)
+    - busca [mouse gaming](producto)
+    - precios de [tablet](producto)
+    - cuánto vale [huawei p50](producto)
+    - cotiza [lenovo thinkpad](producto)
+    - precio [gopro hero](producto)
+    - quiero cotizar [playstation 5](producto)
+    - buscar precios [kindle](producto)
+    - cuánto cuesta [beats headphones](producto)
+    - cotización [apple watch](producto)
+    - precio de [cámara canon](producto)
+    - cotizar [monitor 4k](producto)
+    - quiero cotizar un [mueble](producto)
+    - cotiza [silla](producto)
+    - busca precios de [mesa](producto)
+    - cuánto cuesta un [escritorio](producto)
+    - precio de [sofá](producto)
+    - cotización de [lámpara](producto)
+    - buscar [cama](producto)
+    - quiero saber el precio de [estante](producto)
+    - cotizar [armario](producto)
+    - busca [repisa](producto)
+    - quiero cotizar un [producto](producto)
+    - cotiza [cualquier cosa](producto)
+    - cuánto cuesta un [artículo](producto)
+    - precio de [algo](producto)
+    - cotización de [objeto](producto)
+
+- intent: cambiar_pais
+  examples: |
+    - cambiar a [méxico](pais)
+    - cotizar en [estados unidos](pais)
+    - buscar en [canadá](pais)
+    - cambio a [uk](pais)
+    - quiero cotizar en [alemania](pais)
+    - cambiar país a [francia](pais)
+    - buscar productos en [españa](pais)
+    - cotizar en [italia](pais)
+    - cambiar a [usa](pais)
+    - buscar en amazon [mexico](pais)
+
+- intent: listar_paises
+  examples: |
+    - qué países están disponibles
+    - en qué países puedo cotizar
+    - lista de países
+    - países disponibles
+    - dónde puedo buscar precios
+    - qué amazon hay disponibles
+    - en qué países funciona
+    - mostrar países
+
+- intent: ayuda_cotizador  
+  examples: |
+    - cómo funciona el cotizador
+    - ayuda con cotizaciones
+    - qué puedo cotizar
+    - cómo buscar precios
+    - ayuda cotizar
+    - explicame como funciona
+    - qué productos puedo buscar
+    - cómo usar el cotizador
