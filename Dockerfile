@@ -1,4 +1,4 @@
-# Usar una imagen base de Python más reciente
+# Usar Python 3.9 que es compatible con Rasa 3.6.21
 FROM python:3.9-slim
 
 # Establecer el directorio de trabajo
@@ -8,6 +8,7 @@ WORKDIR /app
 RUN apt-get update && apt-get install -y --no-install-recommends \
     gcc \
     g++ \
+    make \
     supervisor \
     && rm -rf /var/lib/apt/lists/*
 
@@ -25,7 +26,7 @@ COPY . .
 RUN mkdir -p /var/log/supervisor
 COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
-# Crear script de inicio para entrenar modelo de Rasa si es necesario
+# Crear script de inicio
 COPY start.sh /start.sh
 RUN chmod +x /start.sh
 
