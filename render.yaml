@@ -1,0 +1,26 @@
+services:
+  - type: web
+    name: anita-backend
+    env: docker
+    dockerfilePath: ./Dockerfile
+    plan: starter
+    region: oregon
+    branch: main
+    envVars:
+      - key: DATABASE_URL
+        sync: false # Necesitarás configurar esto manualmente en Render
+      - key: RASA_WEBHOOK_URL
+        value: http://localhost:5005/webhooks/rest/webhook
+      - key: PORT
+        value: 8000
+    buildCommand: ""
+    startCommand: ""
+    healthCheckPath: /test-db
+    
+  # Si prefieres separar la base de datos
+  - type: pserv
+    name: anita-database
+    env: docker
+    plan: starter
+    region: oregon
+    # Configuración de PostgreSQL si decides usar un servicio separado
