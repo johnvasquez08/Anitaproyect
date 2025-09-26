@@ -17,9 +17,10 @@ RUN pip install rasa==3.6.21
 RUN pip install -r requirements.txt
 
 # Render pasa el puerto en $PORT
-ENV PORT=$PORT
+ENV PORT=10000
 
-EXPOSE $PORT
+EXPOSE 10000
+
 
 # Arrancar el bot
 CMD ["python", "run_rasa.py"]
