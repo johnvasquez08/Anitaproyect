@@ -1,7 +1,11 @@
 FROM python:3.9-slim-bullseye
 
 WORKDIR /app
-COPY actions /app/actions
+
+# Copia todos los archivos de tu proyecto al contenedor
+COPY . /app
+USER root
+
 
 RUN pip install --upgrade pip
 

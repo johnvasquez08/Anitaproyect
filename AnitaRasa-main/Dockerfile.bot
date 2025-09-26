@@ -1,9 +1,15 @@
 FROM python:3.9-slim-bullseye
 
 WORKDIR /app
+
+
+# Copia todos los archivos de tu proyecto al contenedor
 COPY . /app
+USER root
+
 
 RUN pip install --upgrade pip
+
 
 # Instala Rasa y las dependencias de tus acciones
 # ¡Importante! Aquí instalamos el 'requirements.txt'
