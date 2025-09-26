@@ -15,7 +15,6 @@ RUN pip install -r requirements.txt
 # NO expongas un puerto fijo - Render asignará uno dinámicamente
 # EXPOSE 5055  ❌ Quitar esta línea
 
-ENV PORT=5055
 EXPOSE 5055
 
 CMD ["rasa", "run", "actions", "--port", "5055", "--debug"]

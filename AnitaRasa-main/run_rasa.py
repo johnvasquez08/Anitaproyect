@@ -1,11 +1,7 @@
-import os
-from dotenv import load_dotenv
-import subprocess
+import os, subprocess
 
-load_dotenv()
-
-# Render pasa el puerto en $PORT
 port = os.getenv("PORT", "10000")
+print(f"🔌 Iniciando Rasa en puerto {port}...")
 
 subprocess.run([
     "rasa", "run",
