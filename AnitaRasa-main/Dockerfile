@@ -1,5 +1,5 @@
 # Usa la imagen de Python 3.8.10 como base
-FROM rasa/rasa:3.6.21-full
+FROM python:3.9-slim-bullseye
 
 # Establece el directorio de trabajo
 WORKDIR /app

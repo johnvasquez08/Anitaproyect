@@ -4,7 +4,7 @@ recipe: default.v1
 
 # The assistant project unique identifier
 # This default value must be replaced with a unique assistant name within your deployment
-assistant_id: 20250919-133403-isothermal-compressor
+assistant_id: 20250925-194306-achromatic-bearing
 
 # Configuration for Rasa NLU.
 # https://rasa.com/docs/rasa/nlu/components/
@@ -14,7 +14,7 @@ policies:
   - name: MemoizationPolicy
   - name: RulePolicy
     core_fallback_action_name: "action_search_google"
-    core_fallback_threshold: 0.3 
+    core_fallback_threshold: 0.3
 # # No configuration for the NLU pipeline was provided. The following default pipeline was used to train your model.
 # # If you'd like to customize it, uncomment and adjust the pipeline.
 # # See https://rasa.com/docs/rasa/tuning-your-model for more information.
@@ -43,22 +43,20 @@ pipeline:
   - name: WhitespaceTokenizer
   - name: RegexFeaturizer
   - name: LexicalSyntacticFeaturizer
-  - name: CountVectorsFeaturizer  # Featurizer normal
-  - name: CountVectorsFeaturizer  # Featurizer basado en caracteres
+  - name: CountVectorsFeaturizer
+  - name: CountVectorsFeaturizer
     analyzer: char_wb
-    min_ngram: 2
+    min_ngram: 3 # Ligeramente aumentado para reducir features
     max_ngram: 4
   - name: DIETClassifier
-    epochs: 100
+    epochs: 30 # CRÍTICO: Reducido de 100 a 30
     constrain_similarities: true
   - name: EntitySynonymMapper
   - name: ResponseSelector
-    epochs: 100
+    epochs: 30 # Reducido de 100 a 30
     constrain_similarities: true
   - name: FallbackClassifier
     threshold: 0.3
-  - name: DucklingEntityExtractor
-    dimensions: ["time"]
 
 
 # # No configuration for policies was provided. The following default policies were used to train your model.
