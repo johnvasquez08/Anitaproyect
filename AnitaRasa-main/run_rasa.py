@@ -10,7 +10,7 @@ port = os.getenv("PORT", "5005")
 subprocess.run([
     "rasa", "run",
     "--enable-api",
-    "--cors", "*",
+    "--cors", "http://localhost:5173",
     "--debug",
     "--port", port
 ])
