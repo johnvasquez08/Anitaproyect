@@ -53,6 +53,8 @@ export const Faqs = () => {
   const rasaUrl = import.meta.env.VITE_RASA_URL // Usamos la URL relativa configurada en Vite
 
   const sendMessageToRasa = async (message) => {
+  console.log("Enviando mensaje a Rasa:", message);
+  console.log(rasaUrl)
   try {
     if (!message.trim() && !selectedFile && !selectedImage) {
       console.warn("No hay mensaje ni imagen para enviar.");
