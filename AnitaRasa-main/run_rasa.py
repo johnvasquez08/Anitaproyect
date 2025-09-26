@@ -2,7 +2,15 @@ import os
 from dotenv import load_dotenv
 import subprocess
 
-load_dotenv()  # Esto carga las variables del archivo .env
+load_dotenv()
 
-# Ejecuta el comando de Rasa
-subprocess.run(["rasa", "run", "--enable-api", "--cors", "*", "--debug"])
+# Render pasa el puerto en $PORT
+port = os.getenv("PORT", "5005")
+
+subprocess.run([
+    "rasa", "run",
+    "--enable-api",
+    "--cors", "*",
+    "--debug",
+    "--port", port
+])
