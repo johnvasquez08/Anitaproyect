@@ -4,6 +4,8 @@ FROM python:3.9-slim-bullseye
 # Establece el directorio de trabajo
 WORKDIR /app
 
+COPY credentials.yml /app/
+
 # Copia todos los archivos de tu proyecto al contenedor
 COPY . /app
 

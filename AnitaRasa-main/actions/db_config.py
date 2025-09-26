@@ -2,10 +2,10 @@ import psycopg2
 
 # Configuración de la base de datos
 DB_CONFIG = {
-    "dbname": "anitaDB",  # Tu base de datos
+    "dbname": "anitadb",  # Tu base de datos
     "user": "anita_user",   # Tu usuario de PostgreSQL
-    "password": "developer",  # Tu contraseña
-    "host": "localhost"  # O la dirección IP si estás usando un servidor remoto
+    "password": "uQiLk3tZbNANl1H4STk34OgNdotdmIeV",  # Tu contraseña
+    "host": "dpg-d3aokk95pdvs73eofbag-a.oregon-postgres.render.com"
 }
 
 def conectar_db():
