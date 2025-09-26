@@ -2,25 +2,22 @@ FROM python:3.9-slim-bullseye
 
 WORKDIR /app
 
-
 # Copia todos los archivos de tu proyecto al contenedor
 COPY . /app
 USER root
 
-
 RUN pip install --upgrade pip
 
-
-# Instala Rasa y las dependencias de tus acciones
-# ¡Importante! Aquí instalamos el 'requirements.txt'
+# Instala Rasa y las dependencias
 RUN pip install rasa==3.6.21
 RUN pip install -r requirements.txt
 
-# Render pasa el puerto en $PORT
-ENV PORT=10000
+# NO definas un puerto fijo - Render lo asignará dinámicamente
+# ENV PORT=10000     ❌ Quitar
+# EXPOSE 10000       ❌ Quitar
 
-EXPOSE 10000
+# Variables de entorno
+ENV PYTHONUNBUFFERED=1
 
-
-# Arrancar el bot
+# Arrancar el bot usando el puerto dinámico
 CMD ["python", "run_rasa.py"]
