@@ -11,7 +11,7 @@ import os
 app = Flask(__name__)
 
 # Configuracion de la base de datos
-app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv("DATABASE_URL", "postgresql://anita_user:developer@localhost/anitaDB")
+app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv("DATABASE_URL", "postgresql://anita_user:uQiLk3tZbNANl1H4STk34OgNdotdmIeV@dpg-d3aokk95pdvs73eofbag-a.oregon-postgres.render.com/anitadb")
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False  # Desactivar la notificación de cambios en la base de datos
 
 db.init_app(app) # Inicializar la base de datos
@@ -59,7 +59,7 @@ def register():
     conn.commit()
 
     # Hacer una solicitud a la API de Rasa para obtener el sender_id
-    rasa_url = os.getenv("RASA_WEBHOOK_URL", "http://localhost:5005/webhooks/rest/webhook")
+    rasa_url = os.getenv("RASA_WEBHOOK_URL", "https://anitaproyect.onrender.com/webhooks/rest/webhook")
     payload = {"sender": correo, "message": "inicio de sesión"}
     response = requests.post(rasa_url, json=payload)
 
@@ -132,7 +132,7 @@ def login():
 
     # Obtener sender_id de Rasa
     # Hacer una solicitud a la API de Rasa para obtener el sender_id para este usuario
-    rasa_url = os.getenv("RASA_WEBHOOK_URL", "http://localhost:5005/webhooks/rest/webhook")
+    rasa_url = os.getenv("RASA_WEBHOOK_URL", "https://anitaproyect.onrender.com/webhooks/rest/webhook")
     payload = {"sender": correo, "message": "inicio de sesión"}
     response = requests.post(rasa_url, json=payload)
 
