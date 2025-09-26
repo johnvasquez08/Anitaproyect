@@ -5,7 +5,7 @@ import subprocess
 load_dotenv()
 
 # Render pasa el puerto en $PORT
-port = os.getenv("PORT", "5005")
+port = os.getenv("PORT", "10000")
 
 subprocess.run([
     "rasa", "run",
