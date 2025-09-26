@@ -7,6 +7,7 @@ WORKDIR /app
 # Copia todos los archivos de tu proyecto al contenedor
 COPY . /app
 
+USER root
 # Instala las dependencias del sistema necesarias
 RUN apt-get update && apt-get install -y \
     gcc \
