@@ -1,31 +1,36 @@
 # Usa la imagen de Python 3.8.10 como base
 FROM python:3.9-slim-bullseye
 
-USER root
-RUN apt-get update && apt-get install -y \
-    bash \
-    && rm -rf /var/lib/apt/lists/*
-
-# Directorio de trabajo
+# Establece el directorio de trabajo
 WORKDIR /app
 
-# Copiar primero requirements.txt para aprovechar la caché
-COPY requirements.txt /app/
+COPY credentials.yml /app/
 
-# Instalar dependencias de Python
-RUN pip install --no-cache-dir -r requirements.txt
-
-# Copiar el resto de los archivos del proyecto
+# Copia todos los archivos de tu proyecto al contenedor
 COPY . /app
 
-# Dar permisos de ejecución al entrypoint
-RUN chmod +x /app/entrypoint.sh
+USER root
+# Instala las dependencias del sistema necesarias
+RUN apt-get update && apt-get install -y \
+    gcc \
+    g++ \
+    python3-dev \
+    libffi-dev \
+    libssl-dev \
+    build-essential \
+    tzdata
 
-# Render asigna el puerto dinámicamente
-ENV PORT=$PORT
+# Instala pip y actualiza
+RUN pip install --upgrade pip
 
-# Exponer el puerto (Render lo necesita aunque es dinámico)
-EXPOSE $PORT
+# Instala Rasa y las dependencias de tus acciones
+# ¡Importante! Aquí instalamos el 'requirements.txt'
+RUN pip install rasa==3.6.21
+RUN pip install -r requirements.txt
 
-# Usar entrypoint.sh para levantar actions y el bot
-CMD ["./entrypoint.sh"]
+# Copia el script de inicio y dale permisos de ejecución
+COPY entrypoint.sh /usr/local/bin/entrypoint.sh
+RUN chmod +x /usr/local/bin/entrypoint.sh
+
+# Define el punto de entrada para ejecutar tu script
+ENTRYPOINT ["entrypoint.sh"]
