@@ -3,7 +3,12 @@ FROM python:3.9-slim-bullseye
 WORKDIR /app
 COPY actions /app/actions
 
-RUN pip install --no-cache-dir -r actions/requirements.txt || true
+RUN pip install --upgrade pip
+
+# Instala Rasa y las dependencias de tus acciones
+# ¡Importante! Aquí instalamos el 'requirements.txt'
+RUN pip install rasa==3.6.21
+RUN pip install -r requirements.txt
 
 EXPOSE 5055
 
