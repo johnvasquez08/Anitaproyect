@@ -12,4 +12,4 @@ RUN pip install -r requirements.txt
 # Render pasa el puerto en $PORT
 
 # Arrancar Rasa con el puerto de Render
-CMD ["python", "run_rasa.py"]
+CMD ["rasa", "run", "--enable-api", "--port", "5005"]
