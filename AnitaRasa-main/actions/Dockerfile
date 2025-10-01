@@ -3,7 +3,8 @@ FROM python:3.9-slim-bullseye
 WORKDIR /app
 
 # Copia solo los archivos de acciones y dependencias
-COPY actions_cotizar.py actions_consultar_recordatorio.py actions_guardar_recordatorio.py actions_images.py actions_questions.py actions_report.py custom_rest.py db_config.py formulario_evaluacion_marca.py requirements.txt ./
+COPY actions_cotizar.py actions_consultar_recordatorio.py actions_guardar_recordatorio.py actions_images.py actions_questions.py actions_report.py custom_rest.py db_config.py formulario_evaluacion_marca.py ./
+COPY ../requirements.txt ./
 
 USER root
 
