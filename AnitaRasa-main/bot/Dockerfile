@@ -13,4 +13,4 @@ RUN pip install -r requirements.txt
 EXPOSE 5005
 
 # Arrancar Rasa con el puerto de Render
-CMD ["rasa", "run", "--enable-api", "--port", "5005"]
+CMD ["rasa", "run", "--enable-api", "--port", "5005", "--cors", "*"]
