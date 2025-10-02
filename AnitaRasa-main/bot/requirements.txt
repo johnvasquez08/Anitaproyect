@@ -1,0 +1,8 @@
+rasa==3.6.21
+python-dotenv
+requests==2.32.3
+SQLAlchemy==1.4.54
+redis==4.6.0
+PyYAML==6.0.2
+apscheduler==3.9.1.post1
+sanic==21.12.2
