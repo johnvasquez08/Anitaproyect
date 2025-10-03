@@ -15,7 +15,7 @@ import os
 load_dotenv()
 
 API_TOKEN = os.getenv("OPENROUTER_API_TOKEN")
-MODEL = "deepseek/deepseek-chat-v3-0324:free"
+MODEL = "meta-llama/llama-3.3-8b-instruct:free"
 OPENROUTER_URL = "https://openrouter.ai/api/v1/chat/completions"
 
 class ActionGenerateReport(Action):

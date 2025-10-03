@@ -24,33 +24,43 @@ const RegisterPage = () => {
   }, [navigate]);
 
   const handleRegister = async (e) => {
-    e.preventDefault();
-    try {
-      const response = await fetch("http://127.0.0.1:8000/register", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ correo, password, nombre })
-      });
+  e.preventDefault();
   
-      const data = await response.json();
+  // Log para debug
+  console.log("Datos a enviar:", { correo, password, nombre });
   
-      if (response.ok) {
-        // Guardar todos los datos en una sola clave
-        localStorage.setItem("user", JSON.stringify({
-          correo,
-          nombre: data.nombre,
-          token: data.token,
-          sender_id: data.sender_id
-        }));
-  
-        navigate("/chat");
-      } else {
-        setError(data.message || "Error al registrarse");
-      }
-    } catch (err) {
-      setError("Error de red");
+  try {
+    const response = await fetch("http://127.0.0.1:8000/register", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ correo, password, nombre })
+    });
+
+    const data = await response.json();
+    
+    // Log para ver respuesta completa
+    console.log("Respuesta del servidor:", data);
+    console.log("Status:", response.status);
+
+    if (response.ok) {
+      localStorage.setItem("user", JSON.stringify({
+        correo,
+        nombre: data.nombre,
+        token: data.token,
+        sender_id: data.sender_id
+      }));
+
+      navigate("/chat");
+    } else {
+      // Mostrar el error específico del servidor
+      setError(data.detail || data.message || JSON.stringify(data));
+      console.error("Error del servidor:", data);
     }
-  };
+  } catch (err) {
+    console.error("Error completo:", err);
+    setError("Error de red: " + err.message);
+  }
+};
 
   return (
     <Container maxWidth="xs">

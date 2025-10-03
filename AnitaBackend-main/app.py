@@ -59,7 +59,7 @@ def register():
     conn.commit()
 
     # Hacer una solicitud a la API de Rasa para obtener el sender_id
-    rasa_url = os.getenv("RASA_WEBHOOK_URL", "https://anitaproyect.onrender.com/webhooks/rest/webhook")
+    rasa_url = os.getenv("RASA_WEBHOOK_URL", "https://anitaproyectbot-production.up.railway.app/webhooks/rest/webhook")
     payload = {"sender": correo, "message": "inicio de sesión"}
     response = requests.post(rasa_url, json=payload)
 
@@ -132,7 +132,7 @@ def login():
 
     # Obtener sender_id de Rasa
     # Hacer una solicitud a la API de Rasa para obtener el sender_id para este usuario
-    rasa_url = os.getenv("RASA_WEBHOOK_URL", "https://anitaproyect.onrender.com/webhooks/rest/webhook")
+    rasa_url = os.getenv("RASA_WEBHOOK_URL", "https://anitaproyectbot-production.up.railway.app/webhooks/rest/webhook")
     payload = {"sender": correo, "message": "inicio de sesión"}
     response = requests.post(rasa_url, json=payload)
 

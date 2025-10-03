@@ -2,7 +2,7 @@ import os
 import psycopg2
 from urllib.parse import urlparse
 
-url = os.getenv("DATABASE_URL", "postgresql://anita_user:developer@localhost/anitaDB")
+url = os.getenv("DATABASE_URL", "postgresql://anita_user:uQiLk3tZbNANl1H4STk34OgNdotdmIeV@dpg-d3aokk95pdvs73eofbag-a.oregon-postgres.render.com/anitadb")
 parsed_url = urlparse(url)
 
 # Configuración de la base de datos
