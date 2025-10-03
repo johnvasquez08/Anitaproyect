@@ -1,6 +1,5 @@
 import os
 import requests
-import subprocess
 from rasa_sdk import Action, Tracker
 from rasa_sdk.executor import CollectingDispatcher
 from bs4 import BeautifulSoup
@@ -10,7 +9,6 @@ from reportlab.lib.utils import simpleSplit
 from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
 from reportlab.platypus import Paragraph
 from dotenv import load_dotenv
-import os
 
 load_dotenv()
 
@@ -61,8 +59,11 @@ class ActionGenerateReport(Action):
                 self.write_report(c, width, height, "Error en la página", url, f"No se pudo analizar: {str(e)}", {})
 
         c.save()
-        dispatcher.utter_message(f"Reporte generado. Puedes encontrarlo en: {pdf_filename}")
-        subprocess.Popen(f'explorer "{download_dir}"')
+        dispatcher.utter_message(f"✅ Reporte generado exitosamente.\n📄 Ubicación: {pdf_filename}")
+        
+        # LÍNEA PROBLEMÁTICA ELIMINADA - explorer solo funciona en Windows
+        # subprocess.Popen(f'explorer "{download_dir}"')
+        
         return []
 
     def get_social_media_links(self, soup):
@@ -135,7 +136,7 @@ class ActionGenerateReport(Action):
             para.drawOn(c, 100, y_position - text_height)
             y_position -= text_height + 10
 
-         # **Mejora en el formato de las redes sociales**
+         # Mejora en el formato de las redes sociales
         if social_links:
             y_position -= 15
             c.setFont("Helvetica-Bold", 12)

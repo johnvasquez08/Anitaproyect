@@ -7,7 +7,6 @@ DB_CONFIG = {
     "password": "uQiLk3tZbNANl1H4STk34OgNdotdmIeV",  # Tu contraseña
     "host": "dpg-d3aokk95pdvs73eofbag-a.oregon-postgres.render.com",
     "port": "5432"  # Puerto por defecto de PostgreSQL
-
 }
 
 def conectar_db():
