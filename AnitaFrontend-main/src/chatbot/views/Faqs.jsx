@@ -92,13 +92,24 @@ export const Faqs = () => {
     data = await response.json();
 
     if (data && data.length > 0) {
-      const botMessage = data.map((item) => item.text).join("\n");
+      data.forEach((item) => {
+            // Prepara un nuevo objeto de mensaje
+            const newMessage = {
+                text: item.text || "", // El texto del bot
+                isUser: false,
+                ImageUrl: "/images/19.jpg" // Mantener la imagen del avatar del bot
+            };
 
-      setMessages((prevMessages) => [
-        ...prevMessages,
-        { text: botMessage, isUser: false, ImageUrl: "/images/19.jpg" },
-      ]);
-    }
+            // **PUNTO CLAVE:** Revisa si el item contiene un adjunto
+            if (item.attachment) {
+                // Si existe, agrega la propiedad de adjunto al nuevo mensaje
+                newMessage.attachment = item.attachment;
+            }
+
+            // Agrega el nuevo mensaje al estado
+            setMessages((prevMessages) => [...prevMessages, newMessage]);
+        });
+    }
   } catch (error) {
     console.error("Error al enviar mensaje o imagen:", error);
   }

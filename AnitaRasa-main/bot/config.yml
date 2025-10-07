@@ -3,71 +3,76 @@
 recipe: default.v1
 
 # The assistant project unique identifier
-# This default value must be replaced with a unique assistant name within your deployment
-assistant_id: 20250919-133403-isothermal-compressor
+assistant_id: 20251007-041349-relaxed-semaphore
 
 # Configuration for Rasa NLU.
-# https://rasa.com/docs/rasa/nlu/components/
 language: es
 
+# Configuration for Rasa Core policies.
 policies:
   - name: MemoizationPolicy
+    max_history: 5
   - name: RulePolicy
     core_fallback_action_name: "action_search_google"
     core_fallback_threshold: 0.3
-# # No configuration for the NLU pipeline was provided. The following default pipeline was used to train your model.
-# # If you'd like to customize it, uncomment and adjust the pipeline.
-# # See https://rasa.com/docs/rasa/tuning-your-model for more information.
-#   - name: WhitespaceTokenizer
-#   - name: RegexFeaturizer
-#   - name: LexicalSyntacticFeaturizer
-#   - name: CountVectorsFeaturizer
-#   - name: CountVectorsFeaturizer
-#     analyzer: char_wb
-#     min_ngram: 1
-#     max_ngram: 4
-#   - name: DIETClassifier
-#     epochs: 100
-#     constrain_similarities: true
-#   - name: EntitySynonymMapper
-#   - name: ResponseSelector
-#     epochs: 100
-#     constrain_similarities: true
-#   - name: FallbackClassifier
-#     threshold: 0.3
-#     ambiguity_threshold: 0.1
+  - name: UnexpecTEDIntentPolicy
+    max_history: 5
+    epochs: 50
+  - name: TEDPolicy
+    max_history: 5
+    epochs: 50
+    constrain_similarities: true
 
-# Configuration for Rasa Core.
-# https://rasa.com/docs/rasa/core/policies/
+# Pipeline optimizado para español con mejor extracción de entidades
 pipeline:
+  # Tokenización
   - name: WhitespaceTokenizer
-  - name: RegexFeaturizer
+  
+  # Características léxicas y sintácticas
   - name: LexicalSyntacticFeaturizer
+  
+  # Vectorización de palabras (bag of words)
   - name: CountVectorsFeaturizer
+    analyzer: word
+    min_ngram: 1
+    max_ngram: 2
+  
+  # Vectorización de caracteres
   - name: CountVectorsFeaturizer
     analyzer: char_wb
-    min_ngram: 3 # Ligeramente aumentado para reducir features
+    min_ngram: 2
     max_ngram: 4
+  
+  # DIET Classifier - Motor principal para intents y entidades
   - name: DIETClassifier
-    epochs: 30 # CRÍTICO: Reducido de 100 a 30
+    epochs: 100  # Aumentado para mejor aprendizaje
     constrain_similarities: true
+    number_of_transformer_layers: 2
+    use_masked_language_model: true
+    entity_recognition: true
+    # Configuración optimizada
+    transformer_size: 256
+    batch_size: [64, 256]
+    eval_num_epochs: 20
+    learning_rate: 0.001
+  
+  
+  # Mapeo de sinónimos
   - name: EntitySynonymMapper
+  
+  # Selector de respuestas
   - name: ResponseSelector
-    epochs: 30 # Reducido de 100 a 30
+    epochs: 100
     constrain_similarities: true
+# <--- CAMBIA ESTO A 1 O MÁS
+    use_masked_language_model: false
+    retrieval_intent: "faq"
+  
+  # Clasificador de fallback
   - name: FallbackClassifier
-    threshold: 0.3
+    threshold: 0.4  # Ligeramente aumentado para mayor precisión
+    ambiguity_threshold: 0.1
 
-
-# # No configuration for policies was provided. The following default policies were used to train your model.
-# # If you'd like to customize them, uncomment and adjust the policies.
-# # See https://rasa.com/docs/rasa/policies for more information.
-#   - name: MemoizationPolicy
-#   - name: RulePolicy
-#   - name: UnexpecTEDIntentPolicy
-#     max_history: 5
-#     epochs: 100
-#   - name: TEDPolicy
-#     max_history: 5
-#     epochs: 100
-#     constrain_similarities: true
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true

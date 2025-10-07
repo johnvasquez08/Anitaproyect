@@ -1,5 +1,6 @@
 import os
 import requests
+import base64
 from rasa_sdk import Action, Tracker
 from rasa_sdk.executor import CollectingDispatcher
 from bs4 import BeautifulSoup
@@ -26,7 +27,8 @@ class ActionGenerateReport(Action):
             dispatcher.utter_message("No proporcionaste ninguna URL.")
             return []
 
-        download_dir = os.path.join(os.path.expanduser("~"), "Downloads")
+        # Guardar en directorio temporal del servidor
+        download_dir = "/tmp"
         os.makedirs(download_dir, exist_ok=True)
         pdf_filename = os.path.join(download_dir, "reporte_empresas.pdf")
         c = canvas.Canvas(pdf_filename, pagesize=letter)
@@ -59,10 +61,30 @@ class ActionGenerateReport(Action):
                 self.write_report(c, width, height, "Error en la página", url, f"No se pudo analizar: {str(e)}", {})
 
         c.save()
-        dispatcher.utter_message(f"✅ Reporte generado exitosamente.\n📄 Ubicación: {pdf_filename}")
         
-        # LÍNEA PROBLEMÁTICA ELIMINADA - explorer solo funciona en Windows
-        # subprocess.Popen(f'explorer "{download_dir}"')
+        # Enviar el PDF como archivo adjunto
+        try:
+            with open(pdf_filename, "rb") as pdf_file:
+                pdf_data = pdf_file.read()
+                pdf_base64 = base64.b64encode(pdf_data).decode('utf-8')
+            
+            # Enviar mensaje con el archivo adjunto
+            dispatcher.utter_message(
+                text="✅ Reporte generado exitosamente. Aquí está tu archivo:",
+                attachment={
+                    "type": "file",
+                    "payload": {
+                        "src": f"data:application/pdf;base64,{pdf_base64}",
+                        "title": "reporte_empresas.pdf"
+                    }
+                }
+            )
+            
+            # Limpiar archivo temporal
+            os.remove(pdf_filename)
+            
+        except Exception as e:
+            dispatcher.utter_message(f"❌ Error al enviar el archivo: {str(e)}")
         
         return []
 

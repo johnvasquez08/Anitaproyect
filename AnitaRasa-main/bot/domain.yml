@@ -43,6 +43,7 @@ intents:
   - start_brand_evaluation
   - responder_pregunta_evaluacion
   - nlu_fallback
+  - inform
 
 entities:
   - company_urls
