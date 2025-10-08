@@ -112,7 +112,7 @@ stories:
   - story: Cotizar un producto
     steps:
     - intent: faq_cotizar_producto
-    - action: action_cotizar
+    - action: action_cotizar_producto
 
   - story: Analizar una imagen
     steps:

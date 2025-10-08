@@ -177,7 +177,7 @@ rules:
   - rule: Ejecutar acción de cotización
     steps:
     - intent: faq_cotizar_producto
-    - action: action_cotizar
+    - action: action_cotizar_producto
 
   - rule: Ejecutar análisis de imagen
     steps:
