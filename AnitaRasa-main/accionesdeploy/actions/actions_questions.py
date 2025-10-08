@@ -53,10 +53,11 @@ class ActionSearchLlama(Action):
             "model": MODEL,
             "messages": [system_prompt] + conversation_history + [{"role": "user", "content": query}],
             "temperature": 0.7,
-            "max_tokens": 400
+            "max_tokens": 800
         }
 
         try:
+            print("El mensaje enviado fue:", query)
             response = requests.post(url, headers=headers, json=data)
             response_json = response.json()
 
