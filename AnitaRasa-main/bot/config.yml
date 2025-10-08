@@ -3,7 +3,7 @@
 recipe: default.v1
 
 # The assistant project unique identifier
-assistant_id: 20251007-041349-relaxed-semaphore
+assistant_id: 20250919-133403-isothermal-compressor
 
 # Configuration for Rasa NLU.
 language: es
