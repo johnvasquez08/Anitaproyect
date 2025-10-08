@@ -32,7 +32,7 @@ def enviar_correo(destinatario, mensaje, asunto="Recordatorio"):
         msg.attach(MIMEText(f"<html><body>{mensaje}</body></html>", 'html'))
 
         # Configurar el servidor SMTP de Gmail
-        server = smtplib.SMTP('smtp.gmail.com', 587)
+        server = smtplib.SMTP('smtp.gmail.com', 465)
         server.starttls()  # Iniciar TLS
         server.login(remitente, password)  # Login con el correo y la contraseña de aplicación
         server.sendmail(remitente, destinatario, msg.as_string())  # Enviar el correo

@@ -91,26 +91,28 @@ export const Faqs = () => {
 
     data = await response.json();
 
+    console.log("Respuesta de Rasa:", data);
+
     if (data && data.length > 0) {
-      data.forEach((item) => {
-            // Prepara un nuevo objeto de mensaje
-            const newMessage = {
-                text: item.text || "", // El texto del bot
-                isUser: false,
-                ImageUrl: "/images/19.jpg" // Mantener la imagen del avatar del bot
-            };
+  // Iteramos sobre CADA elemento de la respuesta de Rasa
+  data.forEach((item) => {
+    // Solo creamos un mensaje si hay texto o un adjunto (o ambos)
+    if (item.text || item.attachment) {
+      const newMessage = {
+        text: item.text || "", 
+        isUser: false,
+        ImageUrl: "/images/19.jpg",
+        
+        // Asignamos el adjunto si existe en el elemento actual
+        attachment: item.attachment || null 
+      };
 
-            // **PUNTO CLAVE:** Revisa si el item contiene un adjunto
-            if (item.attachment) {
-                // Si existe, agrega la propiedad de adjunto al nuevo mensaje
-                newMessage.attachment = item.attachment;
-            }
-
-            // Agrega el nuevo mensaje al estado
-            setMessages((prevMessages) => [...prevMessages, newMessage]);
-        });
-    }
-  } catch (error) {
+      // Agregamos el nuevo objeto de mensaje al estado
+      setMessages((prevMessages) => [...prevMessages, newMessage]);
+    }
+  });
+}
+} catch (error) {
     console.error("Error al enviar mensaje o imagen:", error);
   }
 };
@@ -286,6 +288,7 @@ export const Faqs = () => {
             text={message.text}
             isUser={message.isUser}
             ImageUrl={message.ImageUrl} // Mostramos la imagen de la respuesta
+            attachment={message.attachment} // Pasamos el adjunto si existe
           />
         ))}
         {/* Referencia para mantener el scroll al fondo */}

@@ -53,7 +53,7 @@ class ActionSearchLlama(Action):
             "model": MODEL,
             "messages": [system_prompt] + conversation_history + [{"role": "user", "content": query}],
             "temperature": 0.7,
-            "max_tokens": 800
+            "max_tokens": 100
         }
 
         try:

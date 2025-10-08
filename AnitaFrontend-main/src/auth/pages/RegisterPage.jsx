@@ -15,6 +15,7 @@ const RegisterPage = () => {
   const [nombre, setNombre] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const backendUrl = import.meta.env.VITE_BACKEND_URL;
 
   useEffect(() => {
     const correoGuardado = localStorage.getItem("correo");
@@ -30,7 +31,7 @@ const RegisterPage = () => {
   console.log("Datos a enviar:", { correo, password, nombre });
   
   try {
-    const response = await fetch("http://127.0.0.1:8000/register", {
+    const response = await fetch(`${backendUrl}/register`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ correo, password, nombre })
