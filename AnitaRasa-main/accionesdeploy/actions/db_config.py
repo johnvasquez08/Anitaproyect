@@ -2,11 +2,11 @@ import psycopg2
 
 # Configuración de la base de datos
 DB_CONFIG = {
-    "dbname": "anitadb",  # Tu base de datos
-    "user": "anita_user",   # Tu usuario de PostgreSQL
-    "password": "uQiLk3tZbNANl1H4STk34OgNdotdmIeV",  # Tu contraseña
-    "host": "dpg-d3aokk95pdvs73eofbag-a.oregon-postgres.render.com",
-    "port": "5432"  # Puerto por defecto de PostgreSQL
+    "dbname": "anitadb_klp5",  # nombre de la base de datos
+    "user": "anita_user",      # usuario de PostgreSQL
+    "password": "jNl1tf80c8hKDMfoGSQK3HXQ4wf3YFAX",  # contraseña del usuario
+    "host": "dpg-d48fuf3uibrs7397on80-a.oregon-postgres.render.com",  # host del servidor
+    "port": "5432"  # puerto por defecto de PostgreSQL
 }
 
 def conectar_db():
